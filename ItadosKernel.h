@@ -96,9 +96,8 @@ void echo (const char* pStr) {
 
 // DELAY, ESPERA UM DETERMINADO TEMPO
 void delay (int seconds) {
-     __asm__ __volatile__(
-          "int $0x15" : : "a"(0x8600), "c"(0x000f * seconds), "d"(0x4240 * seconds)
-     );
+	for (i = 0; i < 100000*seconds; i++) {
+	}
 }
 
 // PAUSA O CONSOLE
