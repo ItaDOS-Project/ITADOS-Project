@@ -18,4 +18,7 @@ interface e o modo de funcionamento do seu
 sistema operacional, dado que, atualmente, os sistema operacionais estão cada vez mais fechados e menos receptivos a mudanças no 
 seu funcionamento por parte de quem os usa.
 
+Como compilar : Recomendado utilizar o compilador GNU-GCC (GNU General Cross Compiler)
+Descrição dos Arquivos : O arquivo executável (já compilado) chama-se "
+
 Quem desejar colaborar positivamente com seu desenvolvimento, será muito bem vindo.
