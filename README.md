@@ -19,6 +19,8 @@ sistema operacional, dado que, atualmente, os sistema operacionais estão cada v
 seu funcionamento por parte de quem os usa.
 
 Como compilar : Recomendado utilizar o compilador GNU-GCC (GNU General Cross Compiler)
-Descrição dos Arquivos : O arquivo executável (já compilado) chama-se "
+
+Descrição dos Arquivos : O arquivo executável (já compilado) chama-se "iTADOS GRAPH 10-08 V 2.4". Para executá-lo no
+Windows, renomeie-o e adicione no final ".exe". Para executar no Ubuntu, apenas abra-o utilizando o Wine.
 
 Quem desejar colaborar positivamente com seu desenvolvimento, será muito bem vindo.
