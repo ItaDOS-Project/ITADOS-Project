@@ -1,0 +1,3 @@
+Pequena linguagem de script compilada para itados Os escrita em C usando a biblioteca principal 
+
+Futuramente passara por uma possível alteração no código fonte e novas libs 
