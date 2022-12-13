@@ -829,14 +829,14 @@ cout<<"|  v     v                                                               
 cout<<"|  Itac HD                      ____________________________                             Dos      |"<<endl;
 cout<<"|                              |                            |                                     |"<<endl;
 cout<<"|  _____                       |  NENHUMA UNIDADE DE        |                           ____-_    |"<<endl;
-cout<<"|  |   |                       |    DISKETE INSERIDO NO     |                           |    |    |"<<endl;
+cout<<"|  |    |                      |  DISQUETE INSERIDO NO      |                           |    |    |"<<endl;
 cout<<"|  | O  |                      |       DRIVE B:             |                           |    |    |"<<endl;
 cout<<"|  |   E|                      |   ________                 |                           ______    |"<<endl;
 cout<<"|  ______                      |  ||CLOSE|||                |                       Meus Arquivos |"<<endl;
 cout<<"|    A:                        |____________________________|                                     |"<<endl;
 cout<<"|                                                                                                 |"<<endl;
 cout<<"|  _____     __o__                                                                                |"<<endl;
-cout<<"|  |   |     |||||                                                                                |"<<endl;
+cout<<"|  |    |    |||||                                                                                |"<<endl;
 cout<<"|  | O  |    |||||                                                                                |"<<endl;
 cout<<"|  |   E|    |||||                                                                                |"<<endl;
 cout<<"|  ______    Lixo                                                                                 |"<<endl;
