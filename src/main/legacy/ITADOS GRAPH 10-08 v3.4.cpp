@@ -260,12 +260,12 @@ Count++;
 void PiscaTela () {
      system ("cls");
      Sleep (50  );
-     system ("color");//pnm
+     system ("color");// 
      Sleep (50);
      system ("color f0");
      Sleep (50); // ret
      system ("color");
-     Sleep (50); //rdb
+     Sleep (50); // 
      //system ("color 34");
      //Sleep (50);
      system ("color f0");

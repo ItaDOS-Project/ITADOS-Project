@@ -1,26 +1,39 @@
-# ITADOS-Project
+# ITADOS Project - Protótipo de Sistema Operacional (2017)
 
-ITADOS é um projeto de sistema operacional livre desenvolvido em C e C++;
+**Um projeto educacional ambicioso desenvolvido em C/C++ para explorar os fundamentos de sistemas operacionais.**
 
-Autor : Aruni van Amstel.
-Data de criação : maio, 2017.
-Licensa : GNU-GPL v3.0.
+## 📖 Sobre o Projeto
 
-ITADOS é um projeto de sistema operacional simples e livre, desenvolvido em C e C++, que visa mesclar praticidade com robustez.
-Sua interface é grafica, orientada a objetos.
-Já o seu kernel é estruturado.
-Arquitetura : 16/32 bits, Intel
-Bootável em virtual machines, por enquanto.
+ITADOS nasceu em 2017 como uma iniciativa autodidata para entender na prática como sistemas operacionais funcionam. Embora as ambições iniciais fossem grandiosas (conforme manifesto original do ITADOS-Project, presente no repositório original), o foco prático do desenvolvimento foi na **camada de usuário**: implementação de um shell funcional e aplicações de sistema.
 
-O objetivo da criação deste projeto é propor um novo sistema operacional, que seja seguro e robusto como o Linux, voltado para
-usuários que possuam um certo nível de conhecimento na área da computação, permitindo que estes, possam melhor customizar a 
-interface e o modo de funcionamento do seu 
-sistema operacional, dado que, atualmente, os sistema operacionais estão cada vez mais fechados e menos receptivos a mudanças no 
-seu funcionamento por parte de quem os usa.
+**Estado Atual:** Projeto em andamento, com legado de marco do meu aprendizado inicial em programação de sistemas.
+**Link do Repositório Original**: [https://github.com/ItaDOS-Project/ITADOS-Project]
 
-Como compilar : Recomendado utilizar o compilador GNU-GCC (GNU General Cross Compiler)
+## 🛠️ O Que Realmente Foi Implementado
 
-Descrição dos Arquivos : O arquivo executável (já compilado) chama-se "iTADOS GRAPH 10-08 V 2.4". Para executá-lo no
-Windows, renomeie-o e adicione no final ".exe". Para executar no Ubuntu, apenas abra-o utilizando o Wine.
+- **Shell Personalizado**: Parser de comandos com suporte a execução de programas
+- **Editor de Textos**: Manipulação básica de arquivos de texto
+- **Gerenciador de Arquivos**: Navegação e operações em sistema de arquivos
+- **Interpretador Batch**: Execução de scripts automatizados
 
-Quem desejar colaborar positivamente com seu desenvolvimento, será muito bem vindo.
+## 🎯 Habilidades Desenvolvidas
+
+Este projeto, mesmo em estágio inicial, foi fundamental para construir:
+- Pensamento arquitetural em software complexo
+- Gerenciamento de estado em aplicações interativas
+- Processamento de linguagem e parsing de comandos
+- Debugging de baixo nível e resolução autodidata de problemas
+
+## 🚀 Contexto Histórico
+
+*O manifesto original de 2017 reflete a paixão e ambição que impulsionaram este projeto:*
+
+> "ITADOS é um projeto de sistema operacional simples e livre [...] que visa mesclar praticidade com robustez. Sua interface é gráfica, orientada a objetos. O objetivo é propor um novo sistema operacional, que seja seguro e robusto como o Linux, voltado para usuários que possuam um certo nível de conhecimento na área da computação..."
+
+## 📝 Notas do Autor
+
+Este projeto representa minha jornada inicial na programação. Hoje, como desenvolvedor focado em [React/Java/Full-stack], valorizo cada lição aprendida aqui sobre arquitetura de software e resolução de problemas complexos - habilidades que aplico diariamente no desenvolvimento web moderno.
+
+O projeto nunca foi completamente arquivado ou interrompido. Entre os hiatos dos anos, em 2023 e 2024 ele passou por algumas atualizações, conforme a evolução dos meus aprendizados
+sobre a estrutura de Sistemas Operacionais, estruturas de dados, engenharia e arquitetura de software. Essas atualizações infelzimente não foram publicadas na página original do
+projeto na época, mas serão disponibilizadas aqui nesse repositório a partir de então.

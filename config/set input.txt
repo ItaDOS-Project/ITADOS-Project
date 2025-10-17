@@ -1,0 +1,43 @@
+(configs)
+
+61 15
+61 12
+61 9
+
+inputs
+
+(tipos de drivers)
+
+29 9
+29 12
+29 15
+30 18
+
+
+lista de inputs (numeros)
+
+29 9
+10
+11
+12
+13
+14
+15
+16
+
+cmds
+
+29 10 diskcopy
+38 10 format
+45 10 repair
+53 10 info
+29 14 unformat
+
+53 10 read-me.txt
+
+57 01 configuracoes
+
+42 01 visualizar
+
+21 01 editar
+
