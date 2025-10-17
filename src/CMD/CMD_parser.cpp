@@ -1,3 +1,5 @@
+// Itados Command Parser developed by Aruni van Amstel between 2021 and 2023.
+// Reads ITADOS batch files and interprets the commands to be executed by the system.
 #include<windows.h>
 #include <process.h>
 #include<conio.h>
@@ -15,25 +17,12 @@
 using namespace std;
 
 char Tecla;
-
+char PASTA [100];
 char q = 219;
 
-
 string ArquivosDir [50]; /// LISTA DE ARQUIVOS EM UM DIRETORIO
-
-
-
 ifstream myfile1;
 ofstream myfile;
-
-
-
-
-char PASTA [100];
-
-
-string NOMEBAT = "";
-
 
 int index = 0;
 int numlinhas = 0;
@@ -41,12 +30,7 @@ int numlinhas = 0;
 string linhas [1000];
 string linha = "";
 string linhaBat;
-
-
-/*string param1;
-string param2;
-string param3;
-string param4;*/
+string NOMEBAT = "";
 
 string param [8];
 
@@ -105,10 +89,7 @@ void gotoxy(int x, int y)
 void Cor (int Corconsole) {
       HANDLE  hConsole;
       hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-      // you can loop k higher to see more color choices
-
-        // pick the colorattribute k you want
-        SetConsoleTextAttribute(hConsole, Corconsole);
+    SetConsoleTextAttribute(hConsole, Corconsole);
 
 }
 
@@ -157,12 +138,6 @@ string verif = "";
 
 void parse_cmd (string maincmd, string p1, string p2, string p3, string p4, string p5, string p6, string p7) {
 
-    /*if (Padron1 == 0) {
-     cout << "ITACHD_/";
-    } else {
-    cout << Padron;
-    } */
-
 
 if ((maincmd == "cd")||(maincmd == "CD")) {
         cout << endl;
@@ -171,12 +146,12 @@ if ((maincmd == "cd")||(maincmd == "CD")) {
 
 
 }
-if ((maincmd == "CLS")||(maincmd == "cls")) { //PNM
+if ((maincmd == "CLS")||(maincmd == "cls")) { 
      system ("cls");
 }
 
 
-if ((maincmd == "dir")||(maincmd == "DIR")) { //pnm1
+if ((maincmd == "dir")||(maincmd == "DIR")) { 
 int TempNumOne=Pasta.size();
 for (int a=0;a<=TempNumOne;a++)
         {
@@ -195,7 +170,7 @@ for (int a=0;a<=TempNumOne;a++)
     cout << endl;
     cout << "Done" << endl;
 }
-if (maincmd == "resetterm") { //pnm1
+if (maincmd == "resetterm") {
      Sleep (1000);
      system ("exit 1e");
      system ("color 1e");
@@ -203,27 +178,27 @@ if (maincmd == "resetterm") { //pnm1
      Padron1 = 0;
 }
 
-if ((maincmd == "exit")||(maincmd == "EXIT")) { //pnm2
+if ((maincmd == "exit")||(maincmd == "EXIT")) { // 
      system ("color 0a");
      system ("cls");
      Padron1 = 0;
 }
 
-if ((maincmd == "copy")||(maincmd == "COPY")) { //ret
+if ((maincmd == "copy")||(maincmd == "COPY")) { // 
      system (("copy " + p1 + " " + p2).c_str());
      cout << "Done" << endl;
 }
 
-if ((maincmd == "del")||(maincmd == "DEL")) { //rdb
+if ((maincmd == "del")||(maincmd == "DEL")) { // 
        cout << "Done" << endl;
 }
 
-if ((maincmd == "undel")||(maincmd == "UNDEL")) { //rdb
+if ((maincmd == "undel")||(maincmd == "UNDEL")) { // 
        cout << "Done" << endl;
 }
 
 
-if ((maincmd == "pause")||(maincmd == "PAUSE")) { //rdb
+if ((maincmd == "pause")||(maincmd == "PAUSE")) { // 
      system ("pause");
      cout << "\n";
 }
@@ -235,7 +210,7 @@ if ((maincmd == "path") || (maincmd == "PATH")) {
 
 }
 
-if ((maincmd == "create")||(maincmd == "CREATE")) { //rdb
+if ((maincmd == "create")||(maincmd == "CREATE")) { // 
 
      cout << "(1) - Pasta" << endl;
      cout << "(2) - Arquivo Generico" << endl;
@@ -251,7 +226,7 @@ if ((maincmd == "create")||(maincmd == "CREATE")) { //rdb
 
 
 }
-if ((maincmd == "crd") || (maincmd == "CRD")) { //rdb
+if ((maincmd == "crd") || (maincmd == "CRD")) { // 
     system (("md "+ p1).c_str ());
     cout << "done" << endl;
 }
@@ -263,9 +238,9 @@ if ((maincmd == "calc.crasp") || (maincmd == "CALC.CRASP")) {
         int Operacao = 0;
         int Opt;
      cout << " Itados Calculator v 3.5.8" << endl;
-     cout << " 1 - Soma" << endl; //nmd
+     cout << " 1 - Soma" << endl; // 
      cout << " 2 - Subtracao" << endl;
-     cout << " 3 - Multiplicacao" << endl; //tdmdsc
+     cout << " 3 - Multiplicacao" << endl; // 
      cout << " 4 - Divisao" << endl; // nm
      cout << " 0 - Cancelar" << endl; // nm
      cin >> Opt;
@@ -276,7 +251,7 @@ case 1:
     cin >> Operando;
     cout << " Inisira o Operador (2 numero)" << endl;
     cin >> Operador;
-    cout << Operando + Operador << endl; //rdb
+    cout << Operando + Operador << endl; // 
     cout << "done" << endl;
     break;
 case 2:
@@ -285,7 +260,7 @@ case 2:
     cin >> Operando;
     cout << " Inisira o Operador (2 numero)" << endl;
     cin >> Operador;
-    cout << Operando - Operador << endl; //nmd
+    cout << Operando - Operador << endl; // 
     cout << "done" << endl;
     break;
 case 3:
@@ -294,7 +269,7 @@ case 3:
     cin >> Operando;
     cout << " Inisira o Operador (2 numero)" << endl;
     cin >> Operador;
-    cout << Operando * Operador << endl; //pnm
+    cout << Operando * Operador << endl; // 
     cout << "done" << endl;
     break;
 case 4:
@@ -303,7 +278,7 @@ case 4:
     cin >> Operando;
     cout << " Inisira o Operador (2 numero)" << endl;
     cin >> Operador;
-    cout << Operando / Operador << endl; //ret
+    cout << Operando / Operador << endl; // 
     cout << "done" << endl;
 }
 
@@ -341,21 +316,15 @@ if  ((maincmd == "calc") || (maincmd == "CALC")) {
 }
 
 
-if ((maincmd == "Itatexto.crasp") || (maincmd == "ITATEXTO.CRASP")) { //rdb
+if ((maincmd == "Itatexto.crasp") || (maincmd == "ITATEXTO.CRASP")) {
 
-    //PiscaTela ();
-    //Itatexto ();
 }
-if ((maincmd == "ITADOSGRAPH.CRASP") || (maincmd == "Itadosgraph.crasp")) { //rdb
+if ((maincmd == "ITADOSGRAPH.CRASP") || (maincmd == "Itadosgraph.crasp")) { 
 
-    // goto menu;
     ShowConsoleCursor(false);
-    //PiscaTela ();
     gotoxy (10,5);
     cout << "BOOTING ITADOSGRAPH..." << endl;
     gotoxy (0,0);
-    //Efeito_tela ();
-//    goto ENDCMD;
 }
 
 if ((maincmd == "disk") || (maincmd == "DISK")) {
@@ -363,13 +332,11 @@ if ((maincmd == "disk") || (maincmd == "DISK")) {
         cout << "Unidades de armazenamento disponiveis:" << endl;
         cout << endl;
         cout << "HDD.1: ITACHD/" << endl;
-        //cout << "Drive A: " << DiskALabel << endl;
-        //cout << "Drive B: " << DiskBLabel << endl;
         cout << "CD ROM: Empty " << endl;
         cout << endl;
 }
 
-if ((maincmd == "config") || (maincmd == "CONFIG")) { //rdb //*PNM
+if ((maincmd == "config") || (maincmd == "CONFIG")) {
           if (p1 == "?") {
         cout << endl;
         cout << "maincmd CONFIG - atributos possiveis:" << endl;
@@ -401,11 +368,11 @@ if ((maincmd == "config") || (maincmd == "CONFIG")) { //rdb //*PNM
 
 if (p1 == "scrcolor?") {
         system ("color ?");
-} //ret
+} 
 if ((p1 == "scrcolor")||(p1 == "SCRCOLOR")) {
 
         system (("color " + p2).c_str());
-} //ret
+}
 
 
 if (p1 == "build>setup_v143") {
@@ -518,7 +485,6 @@ if ((maincmd == "pchar") || (maincmd == "PCHAR")) {
 
 if ((maincmd == "usrin") || (maincmd == "USRIN")) {
     bool found = false;
-    //cin >> Useread;
     getline (cin, Useread);
 
     for (int i = 0; i < 40; i++) { // PESQUISA A LISTA DE STRINGS PRIMEIRO
@@ -623,23 +589,18 @@ if ((maincmd == "Padron" )||(maincmd == "padron" )||(maincmd == "PADRON" )) {
         Padron = p1;
         cout << "O texto padrao foi definido como " << Padron << endl;
         Padron1=1;
-  //  goto Comd;
 }
 if ((maincmd == "Textreset" )||(maincmd == "textreset" )||(maincmd == "TEXTRESET" )) {
         Padron1 = 0;
         cout << "O texto padrao foi redefinido"<< endl;
-  //  goto Comd;
 }
 if ((maincmd == "version" )||(maincmd == "VERSION" )) {
         cout << "Current Version 1.8.3 0000134020180127"<< endl;
-  //  goto Comd;
 }
 if (maincmd == "verify_if_[exist]" ) {
         system (("if exist " + p1 + " echo arquivo existe").c_str());
-        //cout << "Arquivo nao encontrado" << endl;
-  //  goto Comd;
 }
-if ((maincmd == "if") || (maincmd == "IF")) { //rdb
+if ((maincmd == "if") || (maincmd == "IF")) { 
         bool found = false;
         bool tipoint = false;
         int valorVar = 0;
@@ -700,7 +661,7 @@ if ((maincmd == "if") || (maincmd == "IF")) { //rdb
      }
 
 }
-if ((maincmd == "for") || (maincmd == "FOR")) { //rdb
+if ((maincmd == "for") || (maincmd == "FOR")) {
     bool found = false;
     int for_i = 0;
     int for_add = 0;
@@ -771,10 +732,10 @@ if ((maincmd == "sudo")||(maincmd == "SUDO")) {
 }
 if (p1 == "config_bootloader") {
 
-} //pnm
+} // 
 if (p1 == "change_password") {
         cin >> pin2;
-} //ret
+} // 
 if (p1 == "reboot") {
 
 ShowConsoleCursor(false);
@@ -783,7 +744,7 @@ system ("color 0a");
 Sleep (3000);
 ShowConsoleCursor(true);
 
-} //rdb
+}
 if (p1 == "acess") {
 
  cout << "done" << endl;
@@ -819,18 +780,14 @@ if ((maincmd == "run") || (maincmd == "RUN")) { //NM
      if ((AplicacaoRodar == "Snake.crasp") || (AplicacaoRodar == "SNAKE.CRASP")) {
         Snake ();
      } else if ((AplicacaoRodar == "itatexto.crasp") || (AplicacaoRodar == "ITATEXTO.CRASP")) {
-	//PiscaTela ();
 	Itatexto ();
      } else if ((AplicacaoRodar == "unzip") || (AplicacaoRodar == "UNZIP")) {
         cout << "files extracted uscessfully. " << endl;
      } else if ((AplicacaoRodar == "ITADOSGRAPH.CRASP") || (AplicacaoRodar == "itadosgraph.crasp")) {
 	ShowConsoleCursor(false);
-    	//PiscaTela ();
     	gotoxy (10,5);
     	cout << "BOOTING ITADOSGRAPH..." << endl;
     	gotoxy (0,0);
-    	//Efeito_tela ();
-//    	goto ENDCMD;
      } else if ((AplicacaoRodar == "calc.crasp") || (AplicacaoRodar == "CALC.CRASP")) {
 	goto RUNCALC;
      } else {
@@ -857,11 +814,11 @@ if ((maincmd == "help") || (maincmd == "?") || (maincmd == "HELP")) {
      cout << "abr" << endl;
      cout << "calc" << endl;
      cout << "cd" << endl;
-     cout << "cls" << endl; //pnm
-     cout << "copy" << endl; //ret
+     cout << "cls" << endl; 
+     cout << "copy" << endl; 
      cout << "data" << endl;
      cout << "del" << endl;
-     cout << "dir" << endl; //rdb
+     cout << "dir" << endl; 
      cout << "end" << endl;
      cout << "exit" << endl;
      cout << "goto" << endl;
@@ -881,13 +838,13 @@ if ((maincmd == "guide") || (maincmd == "GUIDE")) { //NM
      cout << "crd - Cria uma pasta" << endl;
      cout << "create - Cria um arquivo ou pasta novos" << endl;
      cout << "changevar - Altera o valor de uma variavel" << endl; // novo
-     cout << "cls - Limpa a tela" << endl; //pnm /
+     cout << "cls - Limpa a tela" << endl; //  /
      cout << "convert - Converte um parametro ou extensao de arquivo em outro" << endl;
      cout << "config - Define as preferencias do sistema, do PC e da interface" << endl; // novo
-     cout << "copy - Copia um arquivo" << endl; //ret /
+     cout << "copy - Copia um arquivo" << endl; //  /
      cout << "data - Carrega a ultima edicao de dados de um backup externo" << endl;
      cout << "del - Deleta um arquivo (enviando para a lixeira) / apaga defitivamente caso na lixeira" << endl;
-     cout << "dir - Mostra os arquivos presentes em uma pasta" << endl; //rdb /lista os diretorios e arquivos de uma pasta
+     cout << "dir - Mostra os arquivos presentes em uma pasta" << endl; //  /lista os diretorios e arquivos de uma pasta
      cout << "disk - Mostra o conteudo do disco" << endl;
      cout << "exit - Fecha todos os aplicativos" << endl;
      cout << "echo - Imprime uma linha de texto (string) ou variavel na tela" << endl; // TDMSC
@@ -915,8 +872,6 @@ if ((maincmd == "guide") || (maincmd == "GUIDE")) { //NM
      cout << endl;
 }
 
-//ENDCMD:
-//cout << "\n";
 
 }
 
@@ -954,16 +909,6 @@ linhachar [i] = Linha [i];
 
 lgt = Linha.length ();
 
-/*for (int i =0; i < lgt; i++) {
-cout << linhachar [i];
-}*/
-/*
-while (ch != 32) { // PEGAR O COMANDO PRINCIPAL
- ch  = linhachar [cont];
- cout << (char) ch;
- comandoPrincipal += ch;
- cont++;
-} */
 
 for (int i =0; i < lgt; i++) {
 if (linhachar [i] != ' ') {
@@ -1023,7 +968,7 @@ if ((comandoPrincipal == "xrun") || (comandoPrincipal == "XRUN")) {
             param [1] += linhachar [i];
         }
 }
-if ((comandoPrincipal == "usrin") || (comandoPrincipal == "USRIN")) { // rv readvar rdvar rdv
+if ((comandoPrincipal == "usrin") || (comandoPrincipal == "USRIN")) { 
         for (int i =continuar; i < lgt; i++) {
             param [1] += linhachar [i];
         }
@@ -1325,16 +1270,7 @@ int main (int argc, char *argv []) {
 
 system ("cls");
 system ("color 0a");
-/*
-if (argv [0] == NULL ) {
-    cout << "Por favor, digite o nome do arquivo / programa que deseja rodar: " << endl;
-    getline (cin,NOMEBAT);
-} else {
-    for (int i =0; i< argv [0].lenght (); i++) {
-    NOMEBAT += argv [0] [i];
-    }
 
-}*/
 
 if (argc == 1) {
     cout << "Por favor, digite o nome do arquivo / programa que deseja rodar: " << endl;
@@ -1353,30 +1289,6 @@ if (argc == 1) {
     Load (aux);
 
 }
-
-/*
-string aux = "";
-int tam = 0;
-tam = strlen(argv[0]) ;
-
-    for (int i =0; i< tam; i++) {
-    aux += argv [0] [i];
-    }
-
-    cout << aux << endl;
-
-if (aux != "") {
-NOMEBAT = aux;
-} else {
-    cout << "Por favor, digite o nome do arquivo / programa que deseja rodar: " << endl;
-    getline (cin,NOMEBAT);
-}
-
-
-
-Load (NOMEBAT);
-
-*/
 
 getch ();
 

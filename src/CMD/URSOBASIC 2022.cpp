@@ -144,7 +144,7 @@ void gotoxy( int column, int line )
 }
 
 void RunForDo (string Cmdfor, string fparam) {
-         if (Cmdfor == "CLEAR") { //PNM
+         if (Cmdfor == "CLEAR") { // 
         system ("cls");
             }
             if (Cmdfor == "DISK:" ) {
@@ -164,13 +164,13 @@ void RunForDo (string Cmdfor, string fparam) {
         cout << "DONE"<< endl;
         }
         }
-         if (Cmdfor == "PAUSE") { //rdb
+         if (Cmdfor == "PAUSE") { // 
      system ("pause>nul");
 }
-if (Cmdfor == "CONSOLE") { //rdb
+if (Cmdfor == "CONSOLE") { // 
      system("color?");
 }
-if (Cmdfor == "COPY") { //ret
+if (Cmdfor == "COPY") { // 
      system ("copy");
 }
 if (Cmdfor == "VAR") { /// CRIA UMA VARIAVEL //////////////////////////////////////////////////
@@ -232,7 +232,7 @@ if (Cmdfor == "LIST") { //NM
 system (("type " + NOME).c_str());
 cout << "*** END OF PROGRAM ***" << endl;
 }
-if (Cmdfor == "10") { //rdb
+if (Cmdfor == "10") { // 
         Itatexto:
      system ("prompt");
      Padron = " ";
@@ -256,7 +256,7 @@ int main(){
 Sleep (5000);
 system ("cls");
 
-system ("color 0a"); //ret
+system ("color 0a"); // 
 cout << "        ***** BEARPC 64 URSOBASIC V2 *****         " << endl;
 cout << " 103685983550 BLOCKS FREE MAY THE FORCE BE WITH YOU" << endl;
 Cmd:
@@ -275,15 +275,15 @@ if (Comando == "OPENDIR") {
     system (("cd " + Pasta).c_str());
 
 }
-if (Comando == "CLEAR") { //PNM
+if (Comando == "CLEAR") { // 
      system ("cls");
 }
 
 
-if (Comando == "DIR") { //pnm1 //RET
+if (Comando == "DIR") { // 1 // 
 
 }
-if (Comando == "exit") { //pnm2
+if (Comando == "exit") { // 
      system ("exit 1e");
      system ("color 1e");
      system ("cls");
@@ -291,29 +291,29 @@ if (Comando == "exit") { //pnm2
      //cout << "ITACHD_/";
      Padron1 = 0;
 }
-if (Comando == "EXIT") { //pnm2
+if (Comando == "EXIT") { // 
      system ("color 1e");
      system ("cls");
 }
 
-if (Comando == "COPY") { //ret
+if (Comando == "COPY") { // 
   //  cin >> Pasta;
     // system (("copy" + Pasta).c_str());
 }
 
-if (Comando == "RET") { //rdb //RDB
+if (Comando == "RET") { //  // 
      return 0;
 }
 
-if (Comando == "PAUSE") { //rdb
+if (Comando == "PAUSE") { // 
      cout << "PRESS ANY KEY TO PROCEED?" << endl;
 	getch ();
 
 }
-if (Comando == "DATA") { //rdb
+if (Comando == "DATA") { // 
      goto Gerarq;
 }
-if (Comando == "CONSOLE") { //rdb
+if (Comando == "CONSOLE") { // 
  cin >> Pasta;
      system (("color" + Pasta).c_str());
 }
@@ -324,9 +324,9 @@ if (Comando == "LOAD_CALC") {
         int Operador = 0;
         int Operacao = 0;
      cout << " Itados Calculator v 3.5.8" << endl;
-     cout << " 1 - Soma" << endl; //nmd
+     cout << " 1 - Soma" << endl; // 
      cout << " 2 - Subtracao" << endl;
-     cout << " 3 - Multiplicacao" << endl; //tdmdsc
+     cout << " 3 - Multiplicacao" << endl; // 
      cout << " 4 - Divisao" << endl; // nm
      cout << " 0 - Cancelar" << endl; // nm
      cin >> Opt;
@@ -337,7 +337,7 @@ case 1:
     cin >> Operando;
     cout << " Inisira o Operador (2 numero)" << endl;
     cin >> Operador;
-    cout << Operando + Operador << endl; //rdb
+    cout << Operando + Operador << endl; // 
     cout << "done" << endl;
     break;
 case 2:
@@ -346,7 +346,7 @@ case 2:
     cin >> Operando;
     cout << " Inisira o Operador (2 numero)" << endl;
     cin >> Operador;
-    cout << Operando - Operador << endl; //nmd
+    cout << Operando - Operador << endl; // 
     cout << "done" << endl;
     break;
 case 3:
@@ -355,7 +355,7 @@ case 3:
     cin >> Operando;
     cout << " Inisira o Operador (2 numero)" << endl;
     cin >> Operador;
-    cout << Operando * Operador << endl; //pnm
+    cout << Operando * Operador << endl; // 
     cout << "done" << endl;
     break;
 case 4:
@@ -364,7 +364,7 @@ case 4:
     cin >> Operando;
     cout << " Inisira o Operador (2 numero)" << endl;
     cin >> Operador;
-    cout << Operando / Operador << endl; //ret
+    cout << Operando / Operador << endl; // 
     cout << "done" << endl;
 }
 
@@ -373,7 +373,7 @@ case 4:
 
 
 
-if (Comando == "10") { //rdb
+if (Comando == "10") { // 
         Itatexto:
      system ("prompt");
      Padron = " ";
@@ -382,17 +382,17 @@ if (Comando == "10") { //rdb
 
 }
 
-if (Comando == "MENU") { //rdb
+if (Comando == "MENU") { // 
     // goto menu;
     goto Bloq;
 }
-if (Comando == "RESET") { //rdb
+if (Comando == "RESET") { // 
     // goto menu;
     system ("color 0a");
     system ("cls");
     Padron1 = 0;
 }
-if (Comando == "CONFIG") { //rdb //*PNM
+if (Comando == "CONFIG") { //  //*PNM
      cin >> Subcomando;
      if (Subcomando == "SETTIME") {
         system ("time");
@@ -668,10 +668,10 @@ Sleep (100);
  if (Opcaodc == "A") {
 cout << "DISCO A SELECIONADO" << endl;
 goto DCOPY;
- } else if (Opcaodc == "B") { //PNM
+ } else if (Opcaodc == "B") { // 
 cout << "DISCO B SELECIONADO" << endl;
 goto DCOPY;
- } else if (Opcaodc == "DA") { //RET
+ } else if (Opcaodc == "DA") { // 
 cout << endl;
 cout << "A ";
 goto DCOPY;
@@ -679,7 +679,7 @@ goto DCOPY;
 cout << endl;
 cout << "B ";
 goto DCOPY;
- } else if (Opcaodc == "S") { //RDB
+ } else if (Opcaodc == "S") { // 
 system ("pause");
 cout << endl;
 cout << "*** END OF PROGRAM ***" << endl;
@@ -718,11 +718,11 @@ system ("cls");
 cout << "DISCO A SELECIONADO" << endl;
 Disco = 1;
 goto IDCMD;
- } else if (Opcaodc == "B") { //PNM
+ } else if (Opcaodc == "B") { // 
 cout << "DISCO B SELECIONADO" << endl;
 Disco = 2;
 goto IDCMD;
- } else if (Opcaodc == "DA") { //RET
+ } else if (Opcaodc == "DA") { // 
 cout << endl;
 cout << "A ";
 goto IDCMD;
@@ -730,7 +730,7 @@ goto IDCMD;
 cout << endl;
 cout << "B ";
 goto IDCMD;
- } else if (Opcaodc == "S") { //RDB
+ } else if (Opcaodc == "S") { // 
 system ("pause");
 cout << endl;
 cout << "*** END OF PROGRAM ***" << endl;
@@ -746,14 +746,14 @@ goto IDCMD;
 cout << "DESEJA MESMO FORMATAR DISCO ORIGINAL?" << endl;
 getch ();
 goto IDCMD;
- } else if (Opcaodc == "CLS") { //PNM
+ } else if (Opcaodc == "CLS") { // 
 system ("cls");
 goto IDCMD;
- } else if (Opcaodc == "DIR") { //RET
+ } else if (Opcaodc == "DIR") { // 
 if (Disco = 1) {
-    cout << "CMD34.DIR         11324 BLOCKS / NAT" << endl; //PNM
-    cout << "CMDDOS.BAT    00345 BLOCKS" << endl; //RET
-    cout << "COPY.CMD         11568 BLOCKS" << endl; //RDB
+    cout << "CMD34.DIR         11324 BLOCKS / NAT" << endl; // 
+    cout << "CMDDOS.BAT    00345 BLOCKS" << endl; // 
+    cout << "COPY.CMD         11568 BLOCKS" << endl; // 
     cout << "FORMAT.CMD     12557 BLOCKS" << endl; //TDMSC
     cout << "CONFIG.SYS        01568 BLOCKS" << endl;
     cout << "INFO.TXT              08567 BLOCKS" << endl;
@@ -770,7 +770,7 @@ goto IDCMD;
 cout << "DESEJA MESMO DESFORMATAR O DISCO ORIGINAL?" << endl;
 getch ();
 goto IDCMD;
- } else if (Opcaodc == "PAUSE") { //RDB
+ } else if (Opcaodc == "PAUSE") { // 
 cout << endl << "PRESSIONE ALGUMA TECLA PARA CONTINUAR..." << endl;
 getch ();
 goto IDCMD;

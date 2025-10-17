@@ -338,12 +338,12 @@ Count++;
 void PiscaTela () {
      system ("cls");
      Sleep (50  );
-     system ("color");//pnm
+     system ("color");// 
      Sleep (50);
      system ("color f0");
      Sleep (50); // ret
      system ("color");
-     Sleep (50); //rdb
+     Sleep (50); // 
      //system ("color 34");
      //Sleep (50);
      system ("color f0");
@@ -1274,7 +1274,7 @@ ShowConsoleCursor(true);
 
 Sleep (3500);
 system ("cls");
-system ("color 0a"); //ret 1e original
+system ("color 0a"); //  1e original
 
 Pasta = ".";
 //system (("cd " + Pasta).c_str());
@@ -1308,14 +1308,14 @@ if ((Comando == "cd")||(Comando == "CD")) {
 
 
 }
-if ((Comando == "CLS")||(Comando == "cls")) { //PNM
+if ((Comando == "CLS")||(Comando == "cls")) { // 
      system ("cls");
 }
 
 if (Comando == "esc") {
      goto ENDCMD;
 }
-if ((Comando == "dir")||(Comando == "DIR")) { //pnm1
+if ((Comando == "dir")||(Comando == "DIR")) { // 1
 int TempNumOne=Pasta.size();
 for (int a=0;a<=TempNumOne;a++)
         {
@@ -1334,7 +1334,7 @@ for (int a=0;a<=TempNumOne;a++)
     cout << endl;
     cout << "Done" << endl;
 }
-if (Comando == "resetterm") { //pnm1
+if (Comando == "resetterm") { // 1
      Sleep (1000);
      system ("exit 1e");
      system ("color 1e");
@@ -1343,47 +1343,47 @@ if (Comando == "resetterm") { //pnm1
      Padron1 = 0;
 }
 
-if (Comando == "exit") { //pnm2
+if (Comando == "exit") { // 
      system ("color 0a");
      system ("cls");
      App = 0;
      //cout << "ITACHD_/";
      Padron1 = 0;
 }
-if (Comando == "EXIT") { //pnm2
+if (Comando == "EXIT") { // 
      system ("color 0a");
      system ("cls");
 }
-if ((Comando == "copy")||(Comando == "COPY")) { //ret
+if ((Comando == "copy")||(Comando == "COPY")) { // 
         cin >> ArquivoCopiar;
         cin >> DestinoCopia;
      system (("copy " + ArquivoCopiar + " " + DestinoCopia).c_str());
      cout << "Done" << endl;
 }
 
-if ((Comando == "del")||(Comando == "DEL")) { //rdb
+if ((Comando == "del")||(Comando == "DEL")) { // 
        cin >> ArquivoDeletar;
        cout << "Done" << endl;
 }
 
-if ((Comando == "undel")||(Comando == "UNDEL")) { //rdb
+if ((Comando == "undel")||(Comando == "UNDEL")) { // 
        cin >> ArquivoRecuperar;
        cout << "Done" << endl;
 }
 
-if ((Comando == "ret")||(Comando == "RET")) { //rdb
+if ((Comando == "ret")||(Comando == "RET")) { // 
      goto ENDCMD;
 }
 
-if (Comando == "pause") { //rdb
+if (Comando == "pause") { // 
      system ("pause");
      cout << "\n";
 }
-if (Comando == "PAUSE") { //rdb
+if (Comando == "PAUSE") { // 
      system ("pause");
 }
 
-if (Comando == "test") { //rdb
+if (Comando == "test") { // 
      system("color?");
 }
 if ((Comando == "path") || (Comando == "PATH")) {
@@ -1391,7 +1391,7 @@ if ((Comando == "path") || (Comando == "PATH")) {
 
 }
 
-if ((Comando == "create")||(Comando == "CREATE")) { //rdb
+if ((Comando == "create")||(Comando == "CREATE")) { // 
         //int Opt;
      cout << "(1) - Pasta" << endl;
      cout << "(2) - Arquivo Generico" << endl;
@@ -1409,7 +1409,7 @@ case 2:
 }
 
 }
-if ((Comando == "crd") || (Comando == "CRD")) { //rdb
+if ((Comando == "crd") || (Comando == "CRD")) { // 
      cin >> ArquivoCopiar;
     system (("md "+ ArquivoCopiar).c_str ());
     cout << "done" << endl;
@@ -1421,9 +1421,9 @@ if ((Comando == "calc.crasp") || (Comando == "CALC.CRASP")) {
         int Operador = 0;
         int Operacao = 0;
      cout << " Itados Calculator v 3.5.8" << endl;
-     cout << " 1 - Soma" << endl; //nmd
+     cout << " 1 - Soma" << endl; // 
      cout << " 2 - Subtracao" << endl;
-     cout << " 3 - Multiplicacao" << endl; //tdmdsc
+     cout << " 3 - Multiplicacao" << endl; // 
      cout << " 4 - Divisao" << endl; // nm
      cout << " 0 - Cancelar" << endl; // nm
      cin >> Opt;
@@ -1434,7 +1434,7 @@ case 1:
     cin >> Operando;
     cout << " Inisira o Operador (2 numero)" << endl;
     cin >> Operador;
-    cout << Operando + Operador << endl; //rdb
+    cout << Operando + Operador << endl; // 
     cout << "done" << endl;
     break;
 case 2:
@@ -1443,7 +1443,7 @@ case 2:
     cin >> Operando;
     cout << " Inisira o Operador (2 numero)" << endl;
     cin >> Operador;
-    cout << Operando - Operador << endl; //nmd
+    cout << Operando - Operador << endl; // 
     cout << "done" << endl;
     break;
 case 3:
@@ -1452,7 +1452,7 @@ case 3:
     cin >> Operando;
     cout << " Inisira o Operador (2 numero)" << endl;
     cin >> Operador;
-    cout << Operando * Operador << endl; //pnm
+    cout << Operando * Operador << endl; // 
     cout << "done" << endl;
     break;
 case 4:
@@ -1461,7 +1461,7 @@ case 4:
     cin >> Operando;
     cout << " Inisira o Operador (2 numero)" << endl;
     cin >> Operador;
-    cout << Operando / Operador << endl; //ret
+    cout << Operando / Operador << endl; // 
     cout << "done" << endl;
 }
 
@@ -1502,12 +1502,12 @@ if (Comando == "\n") {
 goto Cmd;
 }
 
-if ((Comando == "Itatexto.crasp") || (Comando == "ITATEXTO.CRASP")) { //rdb
+if ((Comando == "Itatexto.crasp") || (Comando == "ITATEXTO.CRASP")) { // 
     // goto menu;
     PiscaTela ();
     Itatexto ();
 }
-if ((Comando == "ITADOSGRAPH.CRASP") || (Comando == "Itadosgraph.crasp")) { //rdb
+if ((Comando == "ITADOSGRAPH.CRASP") || (Comando == "Itadosgraph.crasp")) { // 
 
     // goto menu;
     ShowConsoleCursor(false);
@@ -1530,7 +1530,7 @@ if ((Comando == "disk") || (Comando == "DISK")) {
         cout << endl;
 }
 
-if ((Comando == "config") || (Comando == "CONFIG")) { //rdb //*PNM
+if ((Comando == "config") || (Comando == "CONFIG")) { //  //*PNM
      cin >> Subcomando;
           if (Subcomando == "?") {
         cout << endl;
@@ -1570,18 +1570,18 @@ if ((Comando == "config") || (Comando == "CONFIG")) { //rdb //*PNM
 if (Subcomando == "scrld") {
         cin >> LightDuration;
         cout << LightDuration << endl;
-} //pnm
+} // 
 if (Subcomando == "scrcolor?") {
         system ("color ?");
-} //ret
+} // 
 if ((Subcomando == "scrcolor")||(Subcomando == "SCRCOLOR")) {
 cin >> Corsys;
         system (("color " + Corsys).c_str());
-} //ret
+} // 
 if (Subcomando == "vbon") {
         ModoVibracao = 1;
         cout << "Modo vibratorio ativado" << endl;
-} //rdb
+} // 
 if (Subcomando == "vboff") {
         ModoVibracao = 0;
         cout << "Modo vibratorio desativado" << endl;
@@ -1746,13 +1746,13 @@ if (Comando == "verify" ) {
         system (("if not exist " + Arquivoaprocurar + " echo o arquivo nao foi encontrado").c_str());
 
 }
-if ((Comando == "if") || (Comando == "IF")) { //rdb
+if ((Comando == "if") || (Comando == "IF")) { // 
     cin >> Condicao;
     cout << " [";
     cin >> Subcomando;
     cout << " ]" << endl;
 }
-if ((Comando == "for") || (Comando == "FOR")) { //rdb
+if ((Comando == "for") || (Comando == "FOR")) { // 
     cin >> Condicao;
     cout << " [";
     cin >> Subcomando;
@@ -1793,10 +1793,10 @@ if ((Comando == "sudo")||(Comando == "SUDO")) {
 if (Subcomando == "config_bootloader") {
         cin >> LightDuration;
         cout << LightDuration << endl;
-} //pnm
+} // 
 if (Subcomando == "change_password") {
         cin >> pin2;
-} //ret
+} // 
 if (Subcomando == "reboot") {
 //ShowConsoleCursor(false);
 ShowConsoleCursor(false);
@@ -1805,7 +1805,7 @@ system ("color 0a");
 Sleep (3000);
 ShowConsoleCursor(true);
 goto Inic;
-} //rdb
+} // 
 if (Subcomando == "acess") {
         ModoVibracao = 0;
  cout << "done" << endl;
@@ -1939,11 +1939,11 @@ if ((Comando == "help") || (Comando == "?") || (Comando == "HELP")) {
      cout << "cd" << endl; // comandos de navegacao de diretorios miscelaneous
      cout << "dir" << endl;
      cout << "copy" << endl;
-     cout << "cls" << endl; //pnm
-     cout << "crd" << endl; //ret
+     cout << "cls" << endl; // 
+     cout << "crd" << endl; // 
      cout << "echo" << endl;
      cout << "del" << endl;
-     cout << "dir" << endl; //rdb
+     cout << "dir" << endl; // 
      cout << "config" << endl;
      cout << "exit" << endl;
      cout << "sudo" << endl;
@@ -2007,13 +2007,13 @@ if ((Comando == "guide") || (Comando == "GUIDE")) { //NM
      cout << "crd - Cria uma pasta" << endl;
      cout << "create - Cria um arquivo ou pasta novos" << endl;
      cout << "changevar - Altera o valor de uma variavel" << endl; // novo
-     cout << "cls - Limpa a tela" << endl; //pnm /
+     cout << "cls - Limpa a tela" << endl; //  /
      cout << "convert - Converte um parametro ou extensao de arquivo em outro" << endl;
      cout << "config - Define as preferencias do sistema, do PC e da interface" << endl; // novo
-     cout << "copy - Copia um arquivo" << endl; //ret /
+     cout << "copy - Copia um arquivo" << endl; //  /
      cout << "data - Carrega a ultima edicao de dados de um backup externo" << endl;
      cout << "del - Deleta um arquivo (enviando para a lixeira) / apaga defitivamente caso na lixeira" << endl;
-     cout << "dir - Mostra os arquivos presentes em uma pasta" << endl; //rdb /lista os diretorios e arquivos de uma pasta
+     cout << "dir - Mostra os arquivos presentes em uma pasta" << endl; //  /lista os diretorios e arquivos de uma pasta
      cout << "disk - Lista as unidades de disco do computador" << endl;
      cout << "exit - Fecha todos os aplicativos" << endl;
      cout << "echo - Imprime uma linha de texto (string) ou variavel na tela" << endl; // TDMSC
