@@ -35,19 +35,19 @@ Isso significa que o sistema foi compilado, pode encontrar todas as dependência
 
 Uma vez executando, o ITADOS fornece essa lista de comandos:
 
-abr - Abre um arquivo ou / com aplicacao
-calc - Calculadora
-cd - Muda a pasta atual
-crd - Cria uma pasta
-create - Cria um arquivo ou pasta novos
-changevar - Altera o valor de uma variavel
-cls - Limpa a tela
-config - Define as preferencias do sistema, do PC e da interface
-copy - Copia um arquivo
-del - Deleta um arquivo
-dir - Mostra os arquivos presentes em uma pasta
-disk - Lista as unidades de disco do computador
-exit - Fecha todos os aplicativos / Sai do ITADOS
+abr - Abre um arquivo ou / com aplicacao  
+calc - Calculadora  
+cd - Muda a pasta atual  
+crd - Cria uma pasta  
+create - Cria um arquivo ou pasta novos  
+changevar - Altera o valor de uma variavel  
+cls - Limpa a tela  
+config - Define as preferencias do sistema, do PC e da interface  
+copy - Copia um arquivo  
+del - Deleta um arquivo  
+dir - Mostra os arquivos presentes em uma pasta  
+disk - Lista as unidades de disco do computador  
+exit - Fecha todos os aplicativos / Sai do ITADOS    
 echo - Imprime uma linha de texto (string) ou variavel na tela
 end - Finaliza o parametro
 goto - Vai para o ponto de referencia (linha) inserido, usado em scripts batch
