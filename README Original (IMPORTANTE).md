@@ -2,7 +2,7 @@
 
 ITADOS é um projeto de sistema operacional livre desenvolvido em C e C++;
 
-Autor : Aruni (meu nome)
+Autor : Aruni van Amstel
 Data de criação : maio, 2017.
 Licensa : GNU-GPL v3.0.
 
