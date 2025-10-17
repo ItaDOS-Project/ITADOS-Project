@@ -17,9 +17,9 @@ Command Parser: CMD_ITADOS.cpp
 make all
 
 # Ou compile passo a passo:
-make kernel    # Compila o kernel
-make shell     # Compila o shell  
-make apps      # Compila as aplicações
+make kernel    # Compila o kernel  
+make shell     # Compila o shell    
+make apps      # Compila as aplicações   
 make iso       # Cria imagem bootável
 
 # Instruções de Uso
@@ -48,28 +48,28 @@ del - Deleta um arquivo
 dir - Mostra os arquivos presentes em uma pasta  
 disk - Lista as unidades de disco do computador  
 exit - Fecha todos os aplicativos / Sai do ITADOS    
-echo - Imprime uma linha de texto (string) ou variavel na tela
-end - Finaliza o parametro
-goto - Vai para o ponto de referencia (linha) inserido, usado em scripts batch
-help - Mostra itens de ajuda e instrucoes / consulta o modo de uso de um comando
-info - Exibe informacoes / status do sistema / PC
-jump - Posiciona o cursor em uma determinada posicao x e y
-last - carrega o ultimo aplicativo aberto no disco
-path - mostra o endereco da pasta atual
-pause - Pausa qualquer acao do console
-printvar - imprime uma variavel numerica na tela
-pchar - imprime um caractere ASCII na tela
-run - Iniciar um programa, comando ou arquivo em BAT
-ret - Retorna um determinado valor a quem chamou / fecha um programa
-scrwrite - imprime uma string ou texto na tela, sem quebra de linha no final
-string - Cria uma string na memoria
-sudo - Efetua comandos, funcoes e programas no modo de superusuario (com todas as permissoes)
-textreset - Reseta o texto padr├úo do prompt de comando
-undel - recupera um arquivo enviado para a lixeira
-var - cria uma variavel local / do sistema / reserva um espaco de memoria (/m)
-version - Exibe/ Mostra a versao atual do sistema
-verify - verifica a existencia do arquivo especificado
-xrun - faz uma chamada externa a programas DOS/Windows .BAT ou .EXE
+echo - Imprime uma linha de texto (string) ou variavel na tela  
+end - Finaliza o parametro  
+goto - Vai para o ponto de referencia (linha) inserido, usado em scripts batch  
+help - Mostra itens de ajuda e instrucoes / consulta o modo de uso de um comando  
+info - Exibe informacoes / status do sistema / PC  
+jump - Posiciona o cursor em uma determinada posicao x e y  
+last - carrega o ultimo aplicativo aberto no disco  
+path - mostra o endereco da pasta atual  
+pause - Pausa qualquer acao do console  
+printvar - imprime uma variavel numerica na tela  
+pchar - imprime um caractere ASCII na tela  
+run - Iniciar um programa, comando ou arquivo em BAT  
+ret - Retorna um determinado valor a quem chamou / fecha um programa  
+scrwrite - imprime uma string ou texto na tela, sem quebra de linha no final  
+string - Cria uma string na memoria  
+sudo - Efetua comandos, funcoes e programas no modo de superusuario (com todas as permissoes)  
+textreset - Reseta o texto padrão do prompt de comando  
+undel - recupera um arquivo enviado para a lixeira  
+var - cria uma variavel local / do sistema / reserva um espaco de memoria (/m)  
+version - Exibe/ Mostra a versao atual do sistema  
+verify - verifica a existencia do arquivo especificado  
+xrun - faz uma chamada externa a programas DOS/Windows .BAT ou .EXE  
 
 Digite '?' como parametro universal para o comando que deseja saber seu modo de uso, seus subcomandos e seus parametros
 
