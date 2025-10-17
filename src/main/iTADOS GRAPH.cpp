@@ -1,9 +1,8 @@
 /// ITADOS GRAPH POR ARUNI AMSTEL, COPYLEFT 2017
-///* This Software was written by Aruni Amstel (bioaruni@gmail.com) in may, 2017.
+///* This Software was written by Aruni Amstel between may, 2017 and october 2025.
 ///* This file use the GNU-GPL license available at https://www.gnu.org/licenses/gpl-2.0.txt
 ///* This program is the main GUI of the operating system ITADOS
 ///* It countains many mouse functions that can be easily compiled and runned in Windows and Linux,
-/// and also is bootable in Pentium CPUs
 ///* This code is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY.
 
 #define _WIN32_WINNT 0x0500
