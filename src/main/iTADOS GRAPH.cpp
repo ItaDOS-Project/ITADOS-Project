@@ -272,8 +272,10 @@ int NovoValor = 0;
 string Varname;
 char Var = 0;
 
-bool sudolock = true; // SENHA ATIVADA OU DESATIVADA DE PROTECAO DO USUARIO ROOT
+string ARQCONFIG = "CONFIG.cfg";
 
+bool sudolock = true; // SENHA ATIVADA OU DESATIVADA DE PROTECAO DO USUARIO ROOT
+bool inputmode = true;
 
 int operand = 0; int operatord = 0; // VARIAVEIS DA CALC
 
@@ -333,6 +335,13 @@ cout<<"                                                                         
 Sleep (100);
 Count++;
 }
+}
+
+
+bool exist(const char *fileName)
+{
+    std::ifstream infile(fileName);
+    return infile.good();
 }
 
 void PiscaTela () {
@@ -832,7 +841,7 @@ myfileD.close ();
 void LoadSettings () {
 ifstream myfileS;
 Efeito_tela ();
-myfileS.open ("./ADMIN/Settings.inf"); /// CARREGA O ARQUIVO SELECIONADO
+myfileS.open ("../config/Settings.inf"); /// CARREGA O ARQUIVO SELECIONADO
 if (myfileS.is_open ()) {
 
 for (int i = 0; i < 23; i++) { ///X
@@ -1274,7 +1283,9 @@ ShowConsoleCursor(true);
 
 Sleep (3500);
 system ("cls");
-system ("color 0a"); //  1e original
+//system ("color 0a"); //ret 1e original
+if (Corsys != "") system (("color " + Corsys).c_str());
+else system ("color 0a");
 
 Pasta = ".";
 //system (("cd " + Pasta).c_str());
@@ -1299,8 +1310,15 @@ if (Autoboot == "ITADOSGRAPH.CRASP") {
     Efeito_tela ();
     goto ENDCMD;
 }
-cin >> Comando;
-//getline (cin, Comando);
+
+// LEITURA DO COMANDO INSERIDO PELO USUARIO
+
+if (inputmode) {
+    cin >> Comando;
+} else {
+    getline (cin, Comando);
+}
+
 if ((Comando == "cd")||(Comando == "CD")) {
         cout << endl;
     cin >> Pastachange;
@@ -1363,6 +1381,10 @@ if ((Comando == "copy")||(Comando == "COPY")) { //
 
 if ((Comando == "del")||(Comando == "DEL")) { // 
        cin >> ArquivoDeletar;
+       cout << "Tem certeza que deseja deletar o arquivo " << ArquivoDeletar << "? (S/N)" << endl;
+       char confirm = getch ();
+       if ((confirm == 's') || (confirm == 'S')) 
+            system (("del " + ArquivoDeletar + " " + DestinoCopia).c_str());
        cout << "Done" << endl;
 }
 
@@ -1371,7 +1393,7 @@ if ((Comando == "undel")||(Comando == "UNDEL")) { //
        cout << "Done" << endl;
 }
 
-if ((Comando == "ret")||(Comando == "RET")) { // 
+if ((Comando == "ret")||(Comando == "RET")) { // encerra o programa
      goto ENDCMD;
 }
 
@@ -1392,7 +1414,7 @@ if ((Comando == "path") || (Comando == "PATH")) {
 }
 
 if ((Comando == "create")||(Comando == "CREATE")) { // 
-        //int Opt;
+    
      cout << "(1) - Pasta" << endl;
      cout << "(2) - Arquivo Generico" << endl;
      cin >> Opt;
@@ -1503,13 +1525,13 @@ goto Cmd;
 }
 
 if ((Comando == "Itatexto.crasp") || (Comando == "ITATEXTO.CRASP")) { // 
-    // goto menu;
     PiscaTela ();
     Itatexto ();
 }
+if ((Comando == "Itatexto")|| (Comando == "ITATEXTO.CRASP")) system ("./ITATEXTO.EXE");
+
 if ((Comando == "ITADOSGRAPH.CRASP") || (Comando == "Itadosgraph.crasp")) { // 
 
-    // goto menu;
     ShowConsoleCursor(false);
     PiscaTela ();
     gotoxy (10,5);
@@ -1530,13 +1552,13 @@ if ((Comando == "disk") || (Comando == "DISK")) {
         cout << endl;
 }
 
-if ((Comando == "config") || (Comando == "CONFIG")) { //  //*PNM
+if ((Comando == "config") || (Comando == "CONFIG")) { // Menu de configurações
      cin >> Subcomando;
           if (Subcomando == "?") {
         cout << endl;
         cout << "Comando CONFIG - atributos possiveis:" << endl;
         cout << endl;
-        cout << "SAVECONFIG - Salva todas as configuracoes" << endl;
+        cout << "SAVECONFIG - Salva todas as configuracoes em um arquivo" << endl;
         cout << "LOADCONFIG - Carrega config. pre definidas a partir de um arquivo" << endl;
         cout << "SETTIME - Define a hora e data" << endl;
         cout << "SCRCOLOR - Define a combinacao de cores do console" << endl;
@@ -1545,9 +1567,10 @@ if ((Comando == "config") || (Comando == "CONFIG")) { //  //*PNM
         cout << "ECO - Altera o modo de uso da luz do monitor" << endl;
         cout << "RES - Altera o modo de exibicao / resolucao da tela" << endl;
         cout << "FILEATR - Liga ou desliga avisos de operacoes, exclusao, sobrescrevemento e copia de arquivos" << endl;
-        cout << "LANGUAGE - Importa uma linguagem / idioma para o cmd a partir de um arquivo" << endl;
-        cout << "SUDO - Determina parametros de usuario / administrador" << endl;
+        cout << "LANGUAGE - Define ou Importa uma linguagem / idioma para o sistema a partir de um arquivo" << endl;
+        cout << "SUDO - Determina permissoes de acesso para usuarios / modo administrador" << endl;
         cout << "INFOSYSTEM - Informa o tipo de arquitetura do sistema" << endl;
+        cout << "INPUTMODE - Configura modo de entrada no sistema" << endl;
         cout << "GENERAL / PREFERENCES - Carrega um programa de definicoes setup / altera modo de funcionamento dos discos" << endl;
         cout << "VIDEOMEMO / MEMORYTEST / DEBUG - Roda um teste de memoria, procura erros e exibe os registradores da CPU" << endl;
         cout << "BOOT - Configura os parametros de boot do sistema" << endl;
@@ -1557,9 +1580,28 @@ if ((Comando == "config") || (Comando == "CONFIG")) { //  //*PNM
         system ("time");
 }
  if ((Subcomando == "saveconfig")||(Subcomando == "SAVECONFIG")) {
+        myfile.open (ARQCONFIG.c_str());
+        myfile << Padron << endl;
+        myfile << Corsys << endl;
+        myfile << pin << endl;
+        myfile << pin2 << endl;
+        myfile.close ();
         cout << "done" << endl;
 }
- if (Subcomando == "scrbht-") {
+ if ((Subcomando == "loadconfig")||(Subcomando == "LOADCONFIG")) {
+        myfile1.open (ARQCONFIG.c_str());
+        myfile1 >> Padron;
+        myfile1 >> Corsys;
+        myfile1.close ();
+        cout << "done" << endl;
+
+        if (Padron != "") Padron1 = 1;
+        if (Corsys != "") system (("color " + Corsys).c_str());
+}
+
+if ((Subcomando == "inputmode")||(Subcomando == "INPUTMODE")) inputmode = !inputmode;
+ 
+if (Subcomando == "scrbht-") {
         Brilho--;
         cout << Brilho << endl;
 }
@@ -1882,7 +1924,7 @@ if ((Comando == "run") || (Comando == "RUN")) { //NM
      } else {
      //cout << "O sistema nao pode encontrar a aplicacao ou comando solicitado " << endl;
      string avx = "";
-     avx = "CMD " + AplicacaoRodar;
+     avx = "ITADOSCMD " + AplicacaoRodar;
      system (avx.c_str());
      }
 
@@ -5143,7 +5185,7 @@ cout<<"                                                                         
 cout<<"                                                                                                   "<<endl;
 
 
-    cout<<"Aperte alguma tecla para sair...";
+    cout<<"Aperte ESC para sair...";
 
     mouse.start_polling();
 
