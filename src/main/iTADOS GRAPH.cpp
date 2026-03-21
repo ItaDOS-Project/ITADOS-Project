@@ -145,6 +145,8 @@ string L37;
 string L38;
 string L39;
 string L40;
+string Linhas[40];              /// ARRAY PARA ARMAZENAR AS LINHAS DIGITADAS NO ITATEXTO
+string LinhasCarregadas[40];  /// ARRAY PARA ARMAZENAR AS LINHAS CARREGADAS DE UM ARQUIVO
 string Texto;
 string Comando;
 
@@ -363,6 +365,26 @@ void LoadSys (string BOOT) {
     myfile.close ();
 }
 
+/// FUNCAO PARA CONTAR LINHAS DE UM ARQUIVO
+
+int ContarLinhasArquivo(string nomeArquivo) {
+    ifstream arquivo;
+    string linha;
+    int contador = 0;
+    
+    arquivo.open(nomeArquivo.c_str());
+    if (!arquivo.is_open()) {
+        return 0;
+    }
+    
+    while (getline(arquivo, linha)) {
+        contador++;
+    }
+    
+    arquivo.close();
+    return contador;
+}
+
 /// APLICATIVOS
 
 bool Itatexto () {
@@ -410,45 +432,9 @@ if ((Comando == "[salvar]") || (Comando == "[SAVE]") || (Comando == "[save]")|| 
 
   myfile.open (NOMETEXTO.c_str ());
   //myfile << Comando;
-  myfile << L1 << endl;
-  myfile << L2 << endl;
-  myfile << L3 << endl;
-  myfile << L4 << endl;
-  myfile << L5 << endl; //
-  myfile << L6 << endl;
-  myfile << L7 << endl;
-  myfile << L8 << endl;
-  myfile << L9 << endl;
-  myfile << L10 << endl;
-  myfile << L11 << endl;
-  myfile << L12 << endl;
-  myfile << L13 << endl;
-  myfile << L14 << endl;
-  myfile << L15 << endl;
-  myfile << L16 << endl;
-  myfile << L17 << endl;
-  myfile << L18 << endl;
-  myfile << L19 << endl;
-  myfile << L20 << endl;
-  myfile << L21 << endl;
-  myfile << L22 << endl;
-  myfile << L23 << endl;
-  myfile << L24 << endl;
-  myfile << L26 << endl;
-  myfile << L27 << endl;
-  myfile << L28 << endl;
-  myfile << L29 << endl;
-  myfile << L30 << endl;
-  myfile << L31 << endl;
-  myfile << L32 << endl;
-  myfile << L33 << endl;
-  myfile << L34 << endl;
-  myfile << L35 << endl;
-  myfile << L36 << endl;
-  myfile << L37 << endl;
-  myfile << L38 << endl;
-  myfile << L39 << endl;
-  myfile << L40 << endl;
+  for (int i = 0; i < 40; i++) {
+    myfile << Linhas[i] << endl;
+  }
 
   myfile.close();
 }
@@ -521,95 +507,21 @@ cout<<"-------------------------------------------------------------------------
 cout << "LINHA : " << linhaT << "COLUNA : " << colunaT;
 gotoxy (2,4);
 
+int totalLinhas = ContarLinhasArquivo(NOME);
 myfile1.open (NOME.c_str());
-while (! myfile1.eof ()) {
+int linhaCarregada = 0;
+while (! myfile1.eof () && linhaCarregada < totalLinhas) {
     getline (myfile1,Comando);
+    LinhasCarregadas[linhaCarregada] = Comando;
     cout << Comando << endl;
     Sleep (50);
+    linhaCarregada++;
 }
 myfile1.close ();
 }
 
-if (Line == 1) {
-L1 = Comando;
-}else if (Line == 2) {
-L2 = Comando;
-}else if (Line == 3) {
-L3 = Comando;
-}else if (Line == 4) {
-L4 = Comando;
-}else if (Line == 5) {
-L5 = Comando;
-}else if (Line == 6) {
-L6 = Comando;
-}else if (Line == 7) {
-L7 = Comando;
-}else if (Line == 8) {
-L8 = Comando;
-}else if (Line == 10) {
-L9 = Comando;
-}else if (Line == 11) {
-L10 = Comando;
-}else if (Line == 12) {
-L11 = Comando;
-}else if (Line == 13) {
-L12 = Comando;
-}else if (Line == 14) {
-L13 = Comando;
-}else if (Line == 15) {
-L14 = Comando;
-}else if (Line == 16) {
-L15 = Comando;
-}else if (Line == 17) {
-L16 = Comando; //
-}else if (Line == 18) {
-L17 = Comando;
-}else if (Line == 19) {
-L18 = Comando;
-}else if (Line == 20) {
-L19 = Comando;
-}else if (Line == 21) {
-L20 = Comando; //
-}else if (Line == 22) {
-L21 = Comando;
-}else if (Line == 23) {
-L22 = Comando; //
-}else if (Line == 24) {
-L23 = Comando;
-}else if (Line == 25) {
-L24 = Comando;
-}else if (Line == 26) {
-L25 = Comando;
-}else if (Line == 27) {
-L26 = Comando; //
-}else if (Line == 28) {
-L27 = Comando;
-}else if (Line == 29) {
-L28 = Comando;
-}else if (Line == 30) {
-L29 = Comando;
-}else if (Line == 31) {
-L30 = Comando;
-}else if (Line == 32) {
-L31 = Comando;
-}else if (Line == 33) {
-L32 = Comando;
-}else if (Line == 34) {
-L33 = Comando;
-}else if (Line == 35) {
-L34 = Comando;
-}else if (Line == 36) {
-L35 = Comando;
-}else if (Line == 37) {
-L36 = Comando;
-}else if (Line == 38) {
-L37 = Comando;
-}else if (Line == 39) {
-L38 = Comando;
-}else if (Line == 40) {
-L39 = Comando;
-}else if (Line == 41) {
-L40 = Comando;
+if (Line >= 1 && Line <= 40) {
+  Linhas[Line - 1] = Comando;
 }
 
 Line++;
