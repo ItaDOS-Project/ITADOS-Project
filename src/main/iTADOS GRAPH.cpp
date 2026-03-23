@@ -22,7 +22,14 @@
 #include <time.h>
 #include <dos.h>
 
+/// INCLUDES DE MODULOS
+#include "../include/console.h"
+#include "../include/ui.h"
+#include "../include/disco.h"
 
+/// INSTANCIAS DE ESTRUTURAS
+Disco DiscoA;
+Disco DiscoB;
 
     DIR *d;
     struct dirent *dir;
@@ -105,46 +112,8 @@ char qms = 176;
 ifstream myfile1;
 ofstream myfile;
 
-string L1;
-string L2;
-string L3;
-string L4;
-string L5;
-string L6;
-string L7;
-string L8;
-string L9;
-string L10;
-string L11;
-string L12;
-string L13;
-string L14;
-string L15;
-string L16;
-string L17;
-string L18;
-string L19;
-string L20;
-string L21;
-string L22;
-string L23;
-string L24;
-string L25;
-string L26; //
-string L27; //
-string L28;
-string L29; //
-string L30;
-string L31;
-string L32;
-string L33;
-string L34;
-string L35;
-string L36;
-string L37;
-string L38;
-string L39;
-string L40;
+string Linhas[40];              /// ARRAY PARA ARMAZENAR AS LINHAS DIGITADAS NO ITATEXTO
+string LinhasCarregadas[40];  /// ARRAY PARA ARMAZENAR AS LINHAS CARREGADAS DE UM ARQUIVO
 string Texto;
 string Comando;
 
@@ -226,9 +195,6 @@ string Boot; /// INFO DE BOOT DO ARQUIVO DE SETTINGS
 
 bool Hdd = true; /// INFO DE HDD DO ARQUIVO DE SETTINGS
 
-string DiscoA [50]; /// LISTA DE ARQUIVOS DO DISCO A DO ARQUIVO DE SETTINGS
-string DiscoB [50]; /// LISTA DE ARQUIVOS DO DISCO B DO ARQUIVO DE SETTINGS
-
 string RAMstatus; /// INFO DE RAM DO ARQUIVO DE SETTINGS
 
 string InfoSettings; /// DEFINE QUAL TIPO DE INFORMACAO ESTA SENDO LIDA DO ARQUIVO DE CONFIG
@@ -286,81 +252,24 @@ string Pastachange = "";
 bool atualizarTela = false;
 bool mostrarTime = false;
 
+/// FUNCAO PARA CONTAR LINHAS DE UM ARQUIVO
 
-/// --------------------------------
-
-void gotoxy(int x, int y)
-{
-  COORD coord;
-  coord.X = x;
-  coord.Y = y;
-  SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
-}
-
-  void mgotoxy(int x,int y)
-{	COORD p={x,y};
-	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),p);
-}
-
-void Cor (int Corconsole) {
-      HANDLE  hConsole;
-      hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-      // you can loop k higher to see more color choices
-
-        // pick the colorattribute k you want
-        SetConsoleTextAttribute(hConsole, Corconsole);
-
-}
-
-  void ShowConsoleCursor(bool showFlag) // ESCONDE O CURSOR
-{
-    HANDLE out = GetStdHandle(STD_OUTPUT_HANDLE);
-
-    CONSOLE_CURSOR_INFO     cursorInfo;
-
-    GetConsoleCursorInfo(out, &cursorInfo);
-    cursorInfo.bVisible = showFlag; // set the cursor visibility
-    SetConsoleCursorInfo(out, &cursorInfo);
-}
-
-void Resetcor () {
-Cor (240);
-}
-
-void Efeito_tela () {
-gotoxy (0,0);
-int Count = 0;
-while (Count != 40) {
-cout<<"                                                                                                   "<<endl;
-Sleep (100);
-Count++;
-}
-}
-
-
-bool exist(const char *fileName)
-{
-    std::ifstream infile(fileName);
-    return infile.good();
-}
-
-void PiscaTela () {
-     system ("cls");
-     Sleep (50  );
-     system ("color");// 
-     Sleep (50);
-     system ("color f0");
-     Sleep (50); // ret
-     system ("color");
-     Sleep (50); // 
-     //system ("color 34");
-     //Sleep (50);
-     system ("color f0");
-}
-
-void LoadSys (string BOOT) {
-    myfile.open ("ITADOSGRAPH.CRASP");
-    myfile.close ();
+int ContarLinhasArquivo(string nomeArquivo) {
+    ifstream arquivo;
+    string linha;
+    int contador = 0;
+    
+    arquivo.open(nomeArquivo.c_str());
+    if (!arquivo.is_open()) {
+        return 0;
+    }
+    
+    while (getline(arquivo, linha)) {
+        contador++;
+    }
+    
+    arquivo.close();
+    return contador;
 }
 
 /// APLICATIVOS
@@ -410,45 +319,9 @@ if ((Comando == "[salvar]") || (Comando == "[SAVE]") || (Comando == "[save]")|| 
 
   myfile.open (NOMETEXTO.c_str ());
   //myfile << Comando;
-  myfile << L1 << endl;
-  myfile << L2 << endl;
-  myfile << L3 << endl;
-  myfile << L4 << endl;
-  myfile << L5 << endl; //
-  myfile << L6 << endl;
-  myfile << L7 << endl;
-  myfile << L8 << endl;
-  myfile << L9 << endl;
-  myfile << L10 << endl;
-  myfile << L11 << endl;
-  myfile << L12 << endl;
-  myfile << L13 << endl;
-  myfile << L14 << endl;
-  myfile << L15 << endl;
-  myfile << L16 << endl;
-  myfile << L17 << endl;
-  myfile << L18 << endl;
-  myfile << L19 << endl;
-  myfile << L20 << endl;
-  myfile << L21 << endl;
-  myfile << L22 << endl;
-  myfile << L23 << endl;
-  myfile << L24 << endl;
-  myfile << L26 << endl;
-  myfile << L27 << endl;
-  myfile << L28 << endl;
-  myfile << L29 << endl;
-  myfile << L30 << endl;
-  myfile << L31 << endl;
-  myfile << L32 << endl;
-  myfile << L33 << endl;
-  myfile << L34 << endl;
-  myfile << L35 << endl;
-  myfile << L36 << endl;
-  myfile << L37 << endl;
-  myfile << L38 << endl;
-  myfile << L39 << endl;
-  myfile << L40 << endl;
+  for (int i = 0; i < 40; i++) {
+    myfile << Linhas[i] << endl;
+  }
 
   myfile.close();
 }
@@ -521,95 +394,21 @@ cout<<"-------------------------------------------------------------------------
 cout << "LINHA : " << linhaT << "COLUNA : " << colunaT;
 gotoxy (2,4);
 
+int totalLinhas = ContarLinhasArquivo(NOME);
 myfile1.open (NOME.c_str());
-while (! myfile1.eof ()) {
+int linhaCarregada = 0;
+while (! myfile1.eof () && linhaCarregada < totalLinhas) {
     getline (myfile1,Comando);
+    LinhasCarregadas[linhaCarregada] = Comando;
     cout << Comando << endl;
     Sleep (50);
+    linhaCarregada++;
 }
 myfile1.close ();
 }
 
-if (Line == 1) {
-L1 = Comando;
-}else if (Line == 2) {
-L2 = Comando;
-}else if (Line == 3) {
-L3 = Comando;
-}else if (Line == 4) {
-L4 = Comando;
-}else if (Line == 5) {
-L5 = Comando;
-}else if (Line == 6) {
-L6 = Comando;
-}else if (Line == 7) {
-L7 = Comando;
-}else if (Line == 8) {
-L8 = Comando;
-}else if (Line == 10) {
-L9 = Comando;
-}else if (Line == 11) {
-L10 = Comando;
-}else if (Line == 12) {
-L11 = Comando;
-}else if (Line == 13) {
-L12 = Comando;
-}else if (Line == 14) {
-L13 = Comando;
-}else if (Line == 15) {
-L14 = Comando;
-}else if (Line == 16) {
-L15 = Comando;
-}else if (Line == 17) {
-L16 = Comando; //
-}else if (Line == 18) {
-L17 = Comando;
-}else if (Line == 19) {
-L18 = Comando;
-}else if (Line == 20) {
-L19 = Comando;
-}else if (Line == 21) {
-L20 = Comando; //
-}else if (Line == 22) {
-L21 = Comando;
-}else if (Line == 23) {
-L22 = Comando; //
-}else if (Line == 24) {
-L23 = Comando;
-}else if (Line == 25) {
-L24 = Comando;
-}else if (Line == 26) {
-L25 = Comando;
-}else if (Line == 27) {
-L26 = Comando; //
-}else if (Line == 28) {
-L27 = Comando;
-}else if (Line == 29) {
-L28 = Comando;
-}else if (Line == 30) {
-L29 = Comando;
-}else if (Line == 31) {
-L30 = Comando;
-}else if (Line == 32) {
-L31 = Comando;
-}else if (Line == 33) {
-L32 = Comando;
-}else if (Line == 34) {
-L33 = Comando;
-}else if (Line == 35) {
-L34 = Comando;
-}else if (Line == 36) {
-L35 = Comando;
-}else if (Line == 37) {
-L36 = Comando;
-}else if (Line == 38) {
-L37 = Comando;
-}else if (Line == 39) {
-L38 = Comando;
-}else if (Line == 40) {
-L39 = Comando;
-}else if (Line == 41) {
-L40 = Comando;
+if (Line >= 1 && Line <= 40) {
+  Linhas[Line - 1] = Comando;
 }
 
 Line++;
@@ -673,126 +472,6 @@ while (GetAsyncKeyState(VK_END) == 0) {
 }
 End:
 Sleep (1000);
-}
-
-
-
-void MsgErrCopiarInv () {
-gotoxy (32,8);
-cout << "_________________________" ;
-gotoxy (32,9);
-cout << "|                       |" ;
-gotoxy (32,10);
-cout << "|   /\\   O ARQUIVO NAO  |" ;
-gotoxy (32,11);
-cout << "|  /! \\     PODE SER    |" ;
-gotoxy (32,12);
-cout << "| /____\\ COPIADO PARA   |" ;
-gotoxy (32,13);
-cout << "|        ESTE DESTINO   |" ;
-gotoxy (32,14);
-cout << "|                       |" ;
-gotoxy (32,15);
-cout << "|_______________________|" ;
-Sleep (2500);
-system ("cls");
-}
-
-void ConfirmSaveDraw () {
-gotoxy (32,8);
-cout << "_________________________" ;
-gotoxy (32,9);
-cout << "|        SALVAR PINTURA |" ;
-gotoxy (32,10);
-cout << "|        ATUAL?         |" ;
-gotoxy (32,11);
-cout << "| ( ? )  (TECLAR S/N)   |" ;
-gotoxy (32,12);
-cout << "|   _______   ______    |" ;
-gotoxy (32,13);
-cout << "|   | SIM  |  | NAO |   |" ;
-gotoxy (32,14);
-cout << "|   |______|  |_____|   |" ;
-gotoxy (32,15);
-cout << "|_______________________|" ;
-}
-
-void SelecArquivoLoad () {
-gotoxy (32,8);
-cout << "_________________________" ;
-gotoxy (32,9);
-cout << "|  POR FAVOR, DIGITE O  |" ;
-gotoxy (32,10);
-cout << "|  NOME DO ARQUIVO QUE  |" ;
-gotoxy (32,11);
-cout << "| DESEJA ABRIR          |" ;
-gotoxy (32,12);
-cout << "|   ________________    |" ;
-gotoxy (32,13);
-cout << "|   |               |   |" ;
-gotoxy (32,14);
-cout << "|   |_______________|   |" ;
-gotoxy (32,15);
-cout << "|_______________________|" ;
-}
-
-void SelectProgramaExec () {
-gotoxy (32,8);
-cout << "_________________________" ;
-gotoxy (32,9);
-cout << "|  POR FAVOR, DIGITE O  |" ;
-gotoxy (32,10);
-cout << "|  NOME DO PROGRAMA QUE |" ;
-gotoxy (32,11);
-cout << "| DESEJA EXECUTAR       |" ;
-gotoxy (32,12);
-cout << "|   ________________    |" ;
-gotoxy (32,13);
-cout << "|   |               |   |" ;
-gotoxy (32,14);
-cout << "|   |_______________|   |" ;
-gotoxy (32,15);
-cout << "|_______________________|" ;
-}
-
-void PrintaCalc () {
-gotoxy (33,5);
-Cor (105);
-cout << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q ;
-gotoxy (33,6);
-
-cout << "                         ";
-gotoxy (33,7);
-cout << "    "; Cor (240); cout << "                  "; Cor (105); cout << " ";
-gotoxy (33,8);
-cout << "                         ";
-gotoxy (33,9);
-cout << "                         ";
-gotoxy (33,10);
-cout << "                         ";
-gotoxy (33,11);
-cout << "                         ";
-gotoxy (33,12);
-cout << "                         ";
-gotoxy (33  ,13);
-cout << "                         "; // 37.7 a 56.7
-gotoxy (33  ,14);
-cout << "                         ";
-gotoxy (33  ,15);
-cout << "                         ";
-gotoxy (33  ,16);
-cout << "                         ";
-gotoxy (33  ,17);
-cout << "                         ";
-gotoxy (33  ,18);
-cout << "                         ";
-gotoxy (33  ,19);
-cout << "                         ";
-gotoxy (33  ,20);
-cout << "                         ";
-gotoxy (33  ,21);
-cout << "                         ";
-Cor (240); /// RESETA A COR BRANCO/PRETO
 }
 
 void SalvarDesenho () {
@@ -1273,6 +952,11 @@ void Snake () {
 
 void protecao () {
 
+}
+
+void LoadSys (string BOOT) {
+    myfile.open ("ITADOSGRAPH.CRASP");
+    myfile.close ();
 }
 
 
@@ -2091,599 +1775,6 @@ ENDCMD:
     CDY = 0;
     Autoboot = "";
     return false;
-}
-
-void SetTimeScreen () {
-system ("cls");
-cout<<"|______________________________________________________|||||||||||||||||_________________________ |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                       ______    |"<<endl;
-cout<<"|                                                                                       |>   |    |"<<endl;
-cout<<"|                                                                                       |    |    |"<<endl;
-cout<<"|                                                                                       |    |    |"<<endl;
-cout<<"|                                                                                       ______    |"<<endl;
-cout<<"|                                                                                        Dos      |"<<endl;
-cout<<"|                                _______________________________                                  |"<<endl;
-cout<<"|                               | SET TIME/DATE                 |                       ____-_    |"<<endl;
-cout<<"|                               |                               |                       |    |    |"<<endl;
-cout<<"|                               |                               |                       |    |    |"<<endl;
-cout<<"|                               |                               |                       ______    |"<<endl;
-cout<<"|                               |                               |                   Meus Arquivos |"<<endl;
-cout<<"|                               |_______________________________|                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|            __o__                                                                                |"<<endl;
-cout<<"|            |   |                                                                                |"<<endl;
-cout<<"|            |   |                                                                                |"<<endl;
-cout<<"|            |   |                                                                                |"<<endl;
-cout<<"|            |___|                                                                                |"<<endl;
-cout<<"|            Lixo                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"__________________________________________________________________________________________________"<<endl;
-}
-
-// FUNCOES DE IMPRESSAO DAS TELAS
-
-void TelaPrincipal () {
-cout<<"__________________________________________________________________________________________________ "<<endl;
-cout<<"| Itac   | Arquivo | Editar | Disco     | Visualizar   | Configuracoes |                         | "<<endl;
-cout<<"_________________________________________________________________________________________________  "<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                       ______    |"<<endl;
-cout<<"|  _______                                                                              |>   |    |"<<endl;
-cout<<"|  |o    |                                                                              |    |    |"<<endl;
-cout<<"|  |_____|                                                                              |    |    |"<<endl;
-cout<<"|  v     v                                                                              |____|    |"<<endl;
-cout<<"|  Itac HD                                                                               Dos      |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|  _____                                                                                ____-_    |"<<endl;
-cout<<"|  |   |                                                                                |    |    |"<<endl;
-cout<<"|  | O  |                                                                               |____|    |"<<endl;
-cout<<"|  |___E|                                                                                         |"<<endl;
-cout<<"|                                                                                   Meus Arquivos |"<<endl;
-cout<<"|    A:                                                                                           |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|  _____     __o__                                                                                |"<<endl;
-cout<<"|  |   |     |   |                                                                                |"<<endl;
-cout<<"|  | O  |    |   |                                                                                |"<<endl;
-cout<<"|  |___E|    |___|                                                                                |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|    B:      Lixo                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"__________________________________________________________________________________________________"<<endl;
-
-}
-
-void Tela_MenuPrincipal () {
-cout<<"__________________________________________________________________________________________________ "<<endl;
-cout<<"||Itac|||| Arquivo | Editar | Disco     | Visualizar   | Configuracoes |                          | "<<endl;
-cout<<"||||||||||_______________________________________________________________________________________ | "<<endl;
-cout<<"|ITAC Info    PNM   |                                                                             |"<<endl;
-cout<<"|ITADOS Info  RET   |                                                                   ______    |"<<endl;
-cout<<"|Select Imput ALT+N |                                                                   |>   |    |"<<endl;
-cout<<"|Select Printer     |                                                                   |    |    |"<<endl;
-cout<<"|Load...            |                                                                   |____|    |"<<endl;
-cout<<"|Pad Color mgr 3.0  |                                                                             |"<<endl;
-cout<<"|Echo cmd           |                                                                    Dos      |"<<endl;
-cout<<"|_====EXIT====______|                                                                             |"<<endl;
-cout<<"|   ___                                                                                 ____-_    |"<<endl;
-cout<<"|  |   |                                                                                |    |    |"<<endl;
-cout<<"|  | O  |                                                                               |____|    |"<<endl;
-cout<<"|  |___E|                                                                                         |"<<endl;
-cout<<"|                                                                                   Meus Arquivos |"<<endl;
-cout<<"|    A:                                                                                           |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|   ___      __o__                                                                                |"<<endl;
-cout<<"|  |   |     |   |                                                                                |"<<endl;
-cout<<"|  | O  |    |   |                                                                                |"<<endl;
-cout<<"|  |___E|    |___|                                                                                |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|    B:      Lixo                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"__________________________________________________________________________________________________"<<endl;
-}
-
-void Tela_Info () {
-cout<<"|_________________________________________________________________________________________________| "<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                       ______    |"<<endl;
-cout<<"|  _______                                                                              |>   |    |"<<endl;
-cout<<"|  |o    |                                                                              |    |    |"<<endl;
-cout<<"|  _______                                                                              |    |    |"<<endl;
-cout<<"|  v     v                                                                              ______    |"<<endl;
-cout<<"|  Itac HD                      ____________________________                             Dos      |"<<endl;
-cout<<"|                              |                            |                                     |"<<endl;
-cout<<"|  _____                       |  ITADOS V 1.3 BY ARUNI     |                           ____-_    |"<<endl;
-cout<<"|  |   |                       |    AMSTEL COPYLEFT (C)     |                           |    |    |"<<endl;
-cout<<"|  | O  |                      |     ITAC INC. 2017         |                           |    |    |"<<endl;
-cout<<"|  |   E|                      |   ________                 |                           ______    |"<<endl;
-cout<<"|  ______                      |  ||CLOSE|||                |                       Meus Arquivos |"<<endl;
-cout<<"|    A:                        |____________________________|                                     |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|  _____     __o__                                                                                |"<<endl;
-cout<<"|  |   |     |||||                                                                                |"<<endl;
-cout<<"|  | O  |    |||||                                                                                |"<<endl;
-cout<<"|  |   E|    |||||                                                                                |"<<endl;
-cout<<"|  ______    Lixo                                                                                 |"<<endl;
-cout<<"|    B:                                                                                           |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"__________________________________________________________________________________________________"<<endl;
-}
-
-void Tela_DOS () {
-    cout<<" _________________________________________________________________________________________________ "<<endl;
-cout<<"| Itac   | Arquivo | Editar | Disco     | Visualizar   | Configuracoes |                          |"<<endl;
-cout<<"|_________________________________________________________________________________________________|"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                        ____     |"<<endl;
-cout<<"|  _______                                                                              |>   |    |"<<endl;
-cout<<"|  |o   =|                _______________________________________________               |    |    |"<<endl;
-cout<<"|  |_____|               | c:> DOS                                     |X|              |____|    |"<<endl;
-cout<<"|  v     v               |-----------------------------------------------|                        |"<<endl;
-cout<<"|  Itac HD               | c:>                                           |               Dos      |"<<endl;
-cout<<"|                        |                                               |                        |"<<endl;
-cout<<"|   ____                 |                                               |               ___=_    |"<<endl;
-cout<<"|  |   |_                |                                               |              |    |    |"<<endl;
-cout<<"|  | O  |                |                                               |              |____|    |"<<endl;
-cout<<"|  |___A|                |                                               |              ______    |"<<endl;
-cout<<"|                        |                                               |          Meus Arquivos |"<<endl;
-cout<<"|    A:                  |                                               |                        |"<<endl;
-cout<<"|                        |                                               |                        |"<<endl;
-cout<<"|   ____     __=__       |                                               |                        |"<<endl;
-cout<<"|  |   |_    |   |       |                                               |                        |"<<endl;
-cout<<"|  | O  |    |   |       |                                               |                        |"<<endl;
-cout<<"|  |___B|    |___|       |                                               |                        |"<<endl;
-cout<<"|                        |_______________________________________________|                        |"<<endl;
-cout<<"|    B:      Lixo                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"__________________________________________________________________________________________________"<<endl;
-
-}
-
-void Tela_Lixeira () {
-cout<<"__________________________________________________________________________________________________ "<<endl;
-cout<<"| Itac   | Arquivo | Editar | Disco     | Visualizar   | Configuracoes |                          | "<<endl;
-cout<<"|_________________________________________________________________________________________________| "<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                       ______    |"<<endl;
-cout<<"|  _______                                                                              |>   |    |"<<endl;
-cout<<"|  |o    |                                                                              |    |    |"<<endl;
-cout<<"|  _______                                                                              |    |    |"<<endl;
-cout<<"|  v     v                                                                              ______    |"<<endl;
-cout<<"|  Itac HD                      ____________________________                             Dos      |"<<endl;
-cout<<"|                              |                            |                                     |"<<endl;
-cout<<"|  ______                      |  A LIXEIRA SO ABRE         |                           ____-_    |"<<endl;
-cout<<"|  |   |                       |    QUANDO HA ARQUIVOS      |                           |    |    |"<<endl;
-cout<<"|  | O  |                      |       DELETADOS            |                           |____|    |"<<endl;
-cout<<"|  |   E|                      |   ________                 |                                     |"<<endl;
-cout<<"|  ______                      |  |_CLOSE__|                |                       Meus Arquivos |"<<endl;
-cout<<"|    A:                        |____________________________|                                     |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|  ______    __o__                                                                                |"<<endl;
-cout<<"|  |   |     |||||                                                                                |"<<endl;
-cout<<"|  | O  |    |||||                                                                                |"<<endl;
-cout<<"|  |   E|    |||||                                                                                |"<<endl;
-cout<<"|  ______    Lixo                                                                                 |"<<endl;
-cout<<"|    B:                                                                                           |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"__________________________________________________________________________________________________"<<endl;
-}
-
-void Tela_MenuDisco () {
-cout<<"|___________________________|||||||||||||||______________________________________________________ | "<<endl;
-cout<<"|                           |DISKCOPY  ALT+C  |                                                   |"<<endl;
-cout<<"|                           |DUPLICATE        |                                         ______    |"<<endl;
-cout<<"|                           |COPY TO RAM/UNF. |                                         |>   |    |"<<endl;
-cout<<"|                           |FORMAT    ALT+F  |                                         |    |    |"<<endl;
-cout<<"|                           |INFO...          |                                         |    |    |"<<endl;
-cout<<"|                           |_______EXIT______|                                         ______    |"<<endl;
-cout<<"|                                                                                        Dos      |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|  _____                                                                                ____-_    |"<<endl;
-cout<<"|  |   |                                                                                |    |    |"<<endl;
-cout<<"|  | O  |                                                                               |    |    |"<<endl;
-cout<<"|  |___E|                                                                               ______    |"<<endl;
-cout<<"|                                                                                   Meus Arquivos |"<<endl;
-cout<<"|    A:                                                                                           |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|  _____     __o__                                                                                |"<<endl;
-cout<<"|  |   |     |   |                                                                                |"<<endl;
-cout<<"|  | O  |    |   |                                                                                |"<<endl;
-cout<<"|  |___E|    |___|                                                                                |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|    B:      Lixo                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"__________________________________________________________________________________________________"<<endl;
-}
-
-void Tela_MenuArquivo () {
-cout<<"|_________|||||||||||____________________________________________________________________________ | "<<endl;
-cout<<"|         |COPIAR ALT+C     |                                                                     |"<<endl;
-cout<<"|         |MOVER ALT+PNM    |                                                         ______    |"<<endl;
-cout<<"|         |DELETAR DEL      |                                                           |>   |    |"<<endl;
-cout<<"|         |RENOMERAR ALT+RET|                                                           |    |    |"<<endl;
-cout<<"|         |INFO...          |                                                           |    |    |"<<endl;
-cout<<"|         |_______EXIT______|                                                           ______    |"<<endl;
-cout<<"|                                                                                        Dos      |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|  _____                                                                                ____-_    |"<<endl;
-cout<<"|  |   |                                                                                |    |    |"<<endl;
-cout<<"|  | O  |                                                                               |____|    |"<<endl;
-cout<<"|  |___E|                                                                                         |"<<endl;
-cout<<"|                                                                                   Meus Arquivos |"<<endl;
-cout<<"|    A:                                                                                           |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|  _____     __o__                                                                                |"<<endl;
-cout<<"|  |   |     |   |                                                                                |"<<endl;
-cout<<"|  | O  |    |   |                                                                                |"<<endl;
-cout<<"|  |___E|    |___|                                                                                |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|    B:      Lixo                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"__________________________________________________________________________________________________"<<endl;
-}
-
-void Tela_MenuView () {
-cout<<"|_______________________________________||||||||||||||||_________________________________________ | "<<endl;
-cout<<"|                                       |  VIEW AS ICONS  |                                       |"<<endl;
-cout<<"|                                       |  VIEW AS LIST   |                             ______    |"<<endl;
-cout<<"|                                       |  VIEW AS BLOCKS |                             |>   |    |"<<endl;
-cout<<"|                                       |* WINDOW         |                             |    |    |"<<endl;
-cout<<"|                                       |  FULLSCREEN     |                             |    |    |"<<endl;
-cout<<"|                                       |_______EXIT______|                             ______    |"<<endl;
-cout<<"|                                                                                        Dos      |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|   ___                                                                                 ____-_    |"<<endl;
-cout<<"|  |   |                                                                                |    |    |"<<endl;
-cout<<"|  | O  |                                                                               |    |    |"<<endl;
-cout<<"|  |___E|                                                                               ______    |"<<endl;
-cout<<"|                                                                                   Meus Arquivos |"<<endl;
-cout<<"|    A:                                                                                           |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|   ___      __o__                                                                                |"<<endl;
-cout<<"|  |   |     |   |                                                                                |"<<endl;
-cout<<"|  | O  |    |   |                                                                                |"<<endl;
-cout<<"|  |___E|    |___|                                                                                |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|    B:      Lixo                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"__________________________________________________________________________________________________"<<endl;
-}
-
-void Tela_ITACHD () {
-    cout<<" _________________________________________________________________________________________________ "<<endl;
-cout<<"| Itac   | Arquivo | Editar | Disco     | Visualizar   | Configuracoes |                          |"<<endl;
-cout<<"|_________________________________________________________________________________________________|"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                        ____     |"<<endl;
-cout<<"|  _______                                                                              |>   |    |"<<endl;
-cout<<"|  |o   =|                _______________________________________________               |    |    |"<<endl;
-cout<<"|  |_____|               | ITAC HD_/                               |-|O|X|              |____|    |"<<endl;
-cout<<"|  v     v               |-----------------------------------------------|                        |"<<endl;
-cout<<"|  Itac HD               |  ___=_   ___=_   ___=_  |||||      |||||      |               Dos      |"<<endl;
-cout<<"|                        | |    |  |    |  |    |  |TXT|      |   |      |                        |"<<endl;
-cout<<"|   ____                 | |____|  |____|  |____|  |||||      |||||      |               ___=_    |"<<endl;
-cout<<"|  |   |_                |  ITAC    TOOLS   ADMIN  README.TXT ITADOSGRAPH|              |    |    |"<<endl;
-cout<<"|  | O  |                | |||||                                         |              |____|    |"<<endl;
-cout<<"|  |___A|                | |SYS|                                         |                        |"<<endl;
-cout<<"|                        | |||||                                         |          Meus Arquivos |"<<endl;
-cout<<"|    A:                  | ITADOS.SYS                                    |                        |"<<endl;
-cout<<"|                        |                                               |                        |"<<endl;
-cout<<"|   ____     __=__       |                                               |                        |"<<endl;
-cout<<"|  |   |_    |   |       |                                               |                        |"<<endl;
-cout<<"|  | O  |    |   |       |                                               |                        |"<<endl;
-cout<<"|  |___B|    |___|       |                                               |                        |"<<endl;
-cout<<"|                        |_______________________________________________|                        |"<<endl;
-cout<<"|    B:      Lixo                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"__________________________________________________________________________________________________"<<endl;
-}
-
-void Tela_NaoHaDiscos () {
-
-cout<<"|_________________________________________________________________________________________________| "<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                       ______    |"<<endl;
-cout<<"|  _______                                                                              |>   |    |"<<endl;
-cout<<"|  |o    |                                                                              |    |    |"<<endl;
-cout<<"|  _______                                                                              |    |    |"<<endl;
-cout<<"|  v     v                                                                              ______    |"<<endl;
-cout<<"|  Itac HD                      ____________________________                             Dos      |"<<endl;
-cout<<"|                              |                            |                                     |"<<endl;
-cout<<"|  _____                       |  NENHUMA UNIDADE DE        |                           ____-_    |"<<endl;
-cout<<"|  |   |                       |    DISKETE INSERIDO NO     |                           |    |    |"<<endl;
-cout<<"|  | O  |                      |       DRIVE B:             |                           |    |    |"<<endl;
-cout<<"|  |   E|                      |   ________                 |                           ______    |"<<endl;
-cout<<"|  ______                      |  ||CLOSE|||                |                       Meus Arquivos |"<<endl;
-cout<<"|    A:                        |____________________________|                                     |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|  _____     __o__                                                                                |"<<endl;
-cout<<"|  |   |     |||||                                                                                |"<<endl;
-cout<<"|  | O  |    |||||                                                                                |"<<endl;
-cout<<"|  |   E|    |||||                                                                                |"<<endl;
-cout<<"|  ______    Lixo                                                                                 |"<<endl;
-cout<<"|    B:                                                                                           |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"__________________________________________________________________________________________________"<<endl;
-}
-
-void Tela_DiscoAVazio () {
-cout<<" _________________________________________________________________________________________________ "<<endl;
-cout<<"| Itac   | Arquivo | Editar | Disco     | Visualizar   | Configuracoes |                          |"<<endl;
-cout<<"|_________________________________________________________________________________________________|"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                        ____     |"<<endl;
-cout<<"|  _______                                                                              |>   |    |"<<endl;
-cout<<"|  |o   =|                _______________________________________________               |    |    |"<<endl;
-cout<<"|  |_____|               | A:                                      |-|O|X|              |____|    |"<<endl;
-cout<<"|  v     v               |-----------------------------------------------|                        |"<<endl;
-cout<<"|  Itac HD               |                                               |               Dos      |"<<endl;
-cout<<"|                        |                                               |                        |"<<endl;
-cout<<"|   ____                 |                                               |               ___=_    |"<<endl;
-cout<<"|  |   |_                |                                               |              |    |    |"<<endl;
-cout<<"|  | O  |                |                                               |              |____|    |"<<endl;
-cout<<"|  |___A|                |                                               |                        |"<<endl;
-cout<<"|                        |                                               |          Meus Arquivos |"<<endl;
-cout<<"|    A:                  |                                               |                        |"<<endl;
-cout<<"|                        |                                               |                        |"<<endl;
-cout<<"|   ____     __=__       |                                               |                        |"<<endl;
-cout<<"|  |   |_    |   |       |                                               |                        |"<<endl;
-cout<<"|  | O  |    |   |       |                                               |                        |"<<endl;
-cout<<"|  |___B|    |___|       |                                               |                        |"<<endl;
-cout<<"|                        |_______________________________________________|                        |"<<endl;
-cout<<"|    B:      Lixo                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"__________________________________________________________________________________________________"<<endl;
-}
-
-void Tela_DiscoB () {
-    cout<<" _________________________________________________________________________________________________ "<<endl;
-cout<<"| Itac   | Arquivo | Editar | Disco     | Visualizar   | Configuracoes |                          |"<<endl;
-cout<<"|_________________________________________________________________________________________________|"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                        ____     |"<<endl;
-cout<<"|  _______                                                                              |>   |    |"<<endl;
-cout<<"|  |o   =|                _______________________________________________               |    |    |"<<endl;
-cout<<"|  |_____|               | B:                                      |-|O|X|              |____|    |"<<endl;
-cout<<"|  v     v               |-----------------------------------------------|                        |"<<endl;
-cout<<"|  Itac HD               |                                               |               Dos      |"<<endl;
-cout<<"|                        |                                               |                        |"<<endl;
-cout<<"|   ____                 |                                               |               ___=_    |"<<endl;
-cout<<"|  |   |_                |                                               |              |    |    |"<<endl;
-cout<<"|  | O  |                |                                               |              |____|    |"<<endl;
-cout<<"|  |___A|                |                                               |                        |"<<endl;
-cout<<"|                        |                                               |          Meus Arquivos |"<<endl;
-cout<<"|    A:                  |                                               |                        |"<<endl;
-cout<<"|                        |                                               |                        |"<<endl;
-cout<<"|   ____     __=__       |                                               |                        |"<<endl;
-cout<<"|  |   |_    |   |       |                                               |                        |"<<endl;
-cout<<"|  | O  |    |   |       |                                               |                        |"<<endl;
-cout<<"|  |___B|    |___|       |                                               |                        |"<<endl;
-cout<<"|                        |_______________________________________________|                        |"<<endl;
-cout<<"|    B:      Lixo                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"__________________________________________________________________________________________________"<<endl;
-}
-
-void Tela_SelecionarDisco () {
-cout<<"|_________|||CANCELAR|||____|||OK!|||_____________________________________________________________| "<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                       ______    |"<<endl;
-cout<<"|  _______                                                                              |>   |    |"<<endl;
-cout<<"|  |o    |                                                                              |    |    |"<<endl;
-cout<<"|  _______                                                                              |    |    |"<<endl;
-cout<<"|  v     v                                                                              ______    |"<<endl;
-cout<<"|  Itac HD                                                                              Dos      |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|  _____                                                                                ____-_    |"<<endl;
-cout<<"|  |   |                                                                                |    |    |"<<endl;
-cout<<"|  | O  |                                                                               |    |    |"<<endl;
-cout<<"|  |   E|                                                                               ______    |"<<endl;
-cout<<"|  ______                                                                           Meus Arquivos |"<<endl;
-cout<<"|    A:                                                                                           |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|  _____     __o__                                                                                |"<<endl;
-cout<<"|  |   |     |||||                                                                                |"<<endl;
-cout<<"|  | O  |    |||||                                                                                |"<<endl;
-cout<<"|  |   E|    |||||                                                                                |"<<endl;
-cout<<"|  ______    Lixo                                                                                 |"<<endl;
-cout<<"|    B:                                                                                           |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"__________________________________________________________________________________________________"<<endl;
-}
-
-void Tela_PastaTools () {
-cout<<" _________________________________________________________________________________________________ "<<endl;
-cout<<"| Itac   | Arquivo | Editar | Disco     | Visualizar   | Configuracoes |                          |"<<endl;
-cout<<"|_________________________________________________________________________________________________|"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                        ____     |"<<endl;
-cout<<"|  _______                                                                              |>   |    |"<<endl;
-cout<<"|  |o   =|                _______________________________________________               |    |    |"<<endl;
-cout<<"|  |_____|               | ITAC HD_/TOOLS                          |<|O|X|              |____|    |"<<endl;
-cout<<"|  v     v               |-----------------------------------------+-+-+-|                        |"<<endl;
-cout<<"|  Itac HD               | |||||    |||||  |||||   |||||                 |               Dos      |"<<endl;
-cout<<"|                        | |CMD|    |CMD|  |CMD|   |BAT|                 |                        |"<<endl;
-cout<<"|   ____                 | |||||    |||||  |||||   |||||                 |               ___=_    |"<<endl;
-cout<<"|  |   |_                | DISKCOPY FORMAT  REPAIR  INFO.BAT             |              |    |    |"<<endl;
-cout<<"|  | O  |                | |||||    |||||                                |              |____|    |"<<endl;
-cout<<"|  |___A|                | |CMD|    |RUN|                                |                        |"<<endl;
-cout<<"|                        | |||||    |||||                                |          Meus Arquivos |"<<endl;
-cout<<"|    A:                  | UNFORMAT MEMOALLOC.CRASP                      |                        |"<<endl;
-cout<<"|                        |                                               |                        |"<<endl;
-cout<<"|   ____     __=__       |                                               |                        |"<<endl;
-cout<<"|  |   |_    |   |       |                                               |                        |"<<endl;
-cout<<"|  | O  |    |   |       |                                               |                        |"<<endl;
-cout<<"|  |___B|    |___|       |                                               |                        |"<<endl;
-cout<<"|                        |_______________________________________________|                        |"<<endl;
-cout<<"|    B:      Lixo                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"__________________________________________________________________________________________________"<<endl;
-}
-
-void Tela_DeskColor () {
-    cout<<"|______________________________________________________|||||||||||||||||_________________________ |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                       ______    |"<<endl;
-cout<<"|  _______               ________________________________________________               |>   |    |"<<endl;
-cout<<"|  |o    |              |                                                |              |    |    |"<<endl;
-cout<<"|  _______              |           *** SET DESKTOP COLOR ***            |              |    |    |"<<endl;
-cout<<"|  v     v              |           __                      __           |              ______    |"<<endl;
-cout<<"|  Itac HD              |  FONTE : |  | BRANCO     FUNDO : |  | BRANCO   |               Dos      |"<<endl;
-cout<<"|                       |           --                      --           |                        |"<<endl;
-cout<<"|  _____                |           __                      __           |              ____-_    |"<<endl;
-cout<<"|  |   |                |          |  | PRETO              |  | PRETO    |              |    |    |"<<endl;
-cout<<"|  | O  |               |           --                      --           |              |    |    |"<<endl;
-cout<<"|  |___E|               |           __                      __           |              ______    |"<<endl;
-cout<<"|                       |          |  | VERDE              |  | AMARELO  |          Meus Arquivos |"<<endl;
-cout<<"|    A:                 |           --                      --           |                        |"<<endl;
-cout<<"|                       |           __                      __           |                        |"<<endl;
-cout<<"|  _____     __o__      |          |  | VERMELHO           |  | VERDE    |                        |"<<endl;
-cout<<"|  |   |     |   |      |           --                      --           |                        |"<<endl;
-cout<<"|  | O  |    |   |      |                         _________   _______    |                        |"<<endl;
-cout<<"|  |___E|    |___|      |                        | CANCEL  | | SAVE  |   |                        |"<<endl;
-cout<<"|                       |________________________________________________|                        |"<<endl;
-cout<<"|    B:      Lixo                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"__________________________________________________________________________________________________"<<endl;
-}
-
-void Tela_NaoSuportaVGA () {
-cout<<"|_________________________________________________________________________________________________| "<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                       ______    |"<<endl;
-cout<<"|  _______                                                                              |>   |    |"<<endl;
-cout<<"|  |o    |                                                                              |    |    |"<<endl;
-cout<<"|  _______                                                                              |    |    |"<<endl;
-cout<<"|  v     v                                                                              ______    |"<<endl;
-cout<<"|  Itac HD                      ____________________________                             Dos      |"<<endl;
-cout<<"|                              |                            |                                     |"<<endl;
-cout<<"|  _____                       |  RESOLUCAO VGA 160X60      |                           ____-_    |"<<endl;
-cout<<"|  |   |                       |    NAO SUPORTA MODO DE     |                           |    |    |"<<endl;
-cout<<"|  | O  |                      |    TELA CHEIA (FULSCREEN)  |                           |____|    |"<<endl;
-cout<<"|  |   E|                      |   ________                 |                                     |"<<endl;
-cout<<"|  ______                      |  ||||OK||||                |                       Meus Arquivos |"<<endl;
-cout<<"|    A:                        |____________________________|                                     |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|  _____     __o__                                                                                |"<<endl;
-cout<<"|  |   |     |||||                                                                                |"<<endl;
-cout<<"|  | O  |    |||||                                                                                |"<<endl;
-cout<<"|  |   E|    |||||                                                                                |"<<endl;
-cout<<"|  ______    Lixo                                                                                 |"<<endl;
-cout<<"|    B:                                                                                           |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"__________________________________________________________________________________________________"<<endl;
-}
-
-void Tela_SelectInput () {
-    cout<<"__________________________________________________________________________________________________ "<<endl;
-cout<<"| Itac   | Arquivo | Editar | Disco     | Visualizar   | Configuracoes |                         | "<<endl;
-cout<<"_________________________________________________________________________________________________  "<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                       ______    |"<<endl;
-cout<<"|  _______               ________________________________________________               |>   |    |"<<endl;
-cout<<"|  |o    |              |                                                |              |    |    |"<<endl;
-cout<<"|  _______              |  SELECT / SET INPUT:                           |              |    |    |"<<endl;
-cout<<"|  v     v              |   __________________________________________   |              ______    |"<<endl;
-cout<<"|  Itac HD              |  | 1.3                                      |  |               Dos      |"<<endl;
-cout<<"|                       |  | 1.2                                      |  |                        |"<<endl;
-cout<<"|  _____                |  | 2.5                                      |  |              ____-_    |"<<endl;
-cout<<"|  |   |                |  | 3.8                                      |  |              |    |    |"<<endl;
-cout<<"|  | O  |               |  | HDD                                      |  |              |    |    |"<<endl;
-cout<<"|  |   E|               |  | RST                                      |  |              ______    |"<<endl;
-cout<<"|  ______               |  | SRL                                      |  |          Meus Arquivos |"<<endl;
-cout<<"|    A:                 |  |                                          |  |                        |"<<endl;
-cout<<"|                       |  |__________________________________________|  |                        |"<<endl;
-cout<<"|  _____     __o__      |               _______   _________   _______    |                        |"<<endl;
-cout<<"|  |   |     |   |      |              |  SET  | | CANCEL  | | DONE  |   |                        |"<<endl;
-cout<<"|  | O  |    |   |      |________________________________________________|                        |"<<endl;
-cout<<"|  |   E|    |   |                                                                                |"<<endl;
-cout<<"|  ______    _____                                                                                |"<<endl;
-cout<<"|    B:      Lixo                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"__________________________________________________________________________________________________"<<endl;
-}
-
-void Tela_ConfirmaFormatar () {
-/*cout<<"|_________|||CANCELAR|||____|||OK!|||_____________________________________________________________| "<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                       ______    |"<<endl;
-cout<<"|  _______                                                                              |>   |    |"<<endl;
-cout<<"|  |o    |                                                                              |    |    |"<<endl;
-cout<<"|  _______                                                                              |    |    |"<<endl;
-cout<<"|  v     v                                                                              ______    |"<<endl;
-cout<<"|  Itac HD                                                                              Dos      |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|  _____                                                                                ____-_    |"<<endl;
-cout<<"|  |   |                                                                                |    |    |"<<endl;
-cout<<"|  | O  |                                                                               |    |    |"<<endl;
-cout<<"|  |   E|                                                                               ______    |"<<endl;
-cout<<"|  ______                                                                           Meus Arquivos |"<<endl;
-cout<<"|    A:                                                                                           |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|  _____     __o__                                                                                |"<<endl;
-cout<<"|  |   |     |||||                                                                                |"<<endl;
-cout<<"|  | O  |    |||||                                                                                |"<<endl;
-cout<<"|  |   E|    |||||                                                                                |"<<endl;
-cout<<"|  ______    Lixo                                                                                 |"<<endl;
-cout<<"|    B:                                                                                           |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"__________________________________________________________________________________________________"<<endl;
-*/
-gotoxy (32,8);
-cout << "_________________________" ;
-gotoxy (32,9);
-cout << "| TEM CERTEZA QUE DESEJA|" ;
-gotoxy (32,10);
-cout << "|  FORMATAR O DISCO ?   |" ;
-gotoxy (32,11);
-cout << "| ( ? )  (TECLAR S/N)   |" ;
-gotoxy (32,12);
-cout << "|   _______   ______    |" ;
-gotoxy (32,13);
-cout << "|   | SIM  |  | NAO |   |" ;
-gotoxy (32,14);
-cout << "|   |______|  |_____|   |" ;
-gotoxy (32,15);
-cout << "|_______________________|" ;
-
 }
 
 ///
