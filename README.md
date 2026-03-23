@@ -32,7 +32,7 @@ Este projeto, mesmo em estágio inicial, foi fundamental para construir:
 
 ## 📝 Notas do Autor
 
-Este projeto representa minha jornada inicial na programação. Hoje, como desenvolvedor focado em [React/Java/Full-stack], valorizo cada lição aprendida aqui sobre arquitetura de software e resolução de problemas complexos - habilidades que aplico diariamente no desenvolvimento web moderno.
+Este projeto representa minha jornada inicial na programação. Hoje, como desenvolvedor full stack e analista de sistemas, valorizo cada lição aprendida aqui sobre arquitetura de software e resolução de problemas complexos - habilidades que aplico diariamente no desenvolvimento web moderno.
 
 O projeto nunca foi completamente arquivado ou interrompido. Entre os hiatos dos anos, em 2023 e 2024 ele passou por algumas atualizações, conforme a evolução dos meus aprendizados
 sobre a estrutura de Sistemas Operacionais, estruturas de dados, engenharia e arquitetura de software. Essas atualizações infelzimente não foram publicadas na página original do
