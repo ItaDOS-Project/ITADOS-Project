@@ -2,21 +2,21 @@
 
 **Um projeto educacional ambicioso desenvolvido em C/C++ para explorar os fundamentos de sistemas operacionais.**
 
-## 📖 Sobre o Projeto
+##  Sobre o Projeto
 
 ITADOS nasceu em 2017 como uma iniciativa autodidata para entender na prática como sistemas operacionais funcionam. Embora as ambições iniciais fossem grandiosas (conforme manifesto original do ITADOS-Project, presente no repositório original), o foco prático do desenvolvimento foi na **camada de usuário**: implementação de um shell funcional e aplicações de sistema.
 
 **Estado Atual:** Projeto em andamento, com legado de marco do meu aprendizado inicial em programação de sistemas.
 **Link do Repositório Original**: [https://github.com/ItaDOS-Project/ITADOS-Project]
 
-## 🛠️ O Que Realmente Foi Implementado
+##  O Que Realmente Foi Implementado
 
 - **Shell Personalizado**: Parser de comandos com suporte a execução de programas
 - **Editor de Textos**: Manipulação básica de arquivos de texto
 - **Gerenciador de Arquivos**: Navegação e operações em sistema de arquivos
 - **Interpretador Batch**: Execução de scripts automatizados
 
-## 🎯 Habilidades Desenvolvidas
+##  Habilidades Desenvolvidas
 
 Este projeto, mesmo em estágio inicial, foi fundamental para construir:
 - Pensamento arquitetural em software complexo
@@ -24,13 +24,13 @@ Este projeto, mesmo em estágio inicial, foi fundamental para construir:
 - Processamento de linguagem e parsing de comandos
 - Debugging de baixo nível e resolução autodidata de problemas
 
-## 🚀 Contexto Histórico
+##  Contexto Histórico
 
 *O manifesto original de 2017 reflete a paixão e ambição que impulsionaram este projeto:*
 
 > "ITADOS é um projeto de sistema operacional simples e livre [...] que visa mesclar praticidade com robustez. Sua interface é gráfica, orientada a objetos. O objetivo é propor um novo sistema operacional, que seja seguro e robusto como o Linux, voltado para usuários que possuam um certo nível de conhecimento na área da computação..."
 
-## 📝 Notas do Autor
+##  Notas do Autor
 
 Este projeto representa minha jornada inicial na programação. Hoje, como desenvolvedor focado em [React/Java/Full-stack], valorizo cada lição aprendida aqui sobre arquitetura de software e resolução de problemas complexos - habilidades que aplico diariamente no desenvolvimento web moderno.
 
