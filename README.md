@@ -1,4 +1,4 @@
-# ITADOS Project - Protótipo de Sistema Operacional (2017)
+# ITADOS Project - Protótipo de Sistema Operacional
 
 **Um projeto ambicioso desenvolvido em C/C++ para explorar os fundamentos de sistemas operacionais e trazer de volta a experiência da computação retrotech.**
 
