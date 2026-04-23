@@ -2,21 +2,21 @@
 
 **Um projeto ambicioso desenvolvido em C/C++ para explorar os fundamentos de sistemas operacionais e trazer de volta a experiência da computação retrotech.**
 
-## 📖 Sobre o Projeto
+##  Sobre o Projeto
 
 ITADOS nasceu em 2017 como uma iniciativa autodidata de Aruni van Amstel para entender na prática como sistemas operacionais funcionam. Embora as ambições iniciais fossem grandiosas (conforme manifesto original do ITADOS-Project, presente no repositório original), o foco prático do desenvolvimento foi na **camada de usuário**: implementação de um shell funcional e aplicações de sistema.
 
 **Estado Atual:** Projeto em andamento, com legado de marco do meu aprendizado inicial em programação de sistemas.
 **Link do Repositório Original**: [https://github.com/ItaDOS-Project/ITADOS-Project]
 
-## 🛠️ O Que Realmente Foi Implementado
+##  O Que Realmente Foi Implementado
 
 - **Shell Personalizado**: Parser de comandos com suporte a execução de programas
 - **Editor de Textos**: Manipulação básica de arquivos de texto
 - **Gerenciador de Arquivos**: Navegação e operações em sistema de arquivos
 - **Interpretador Batch**: Execução de scripts automatizados
 
-## 🎯 Habilidades Desenvolvidas
+##  Habilidades Desenvolvidas
 
 Este projeto, mesmo em estágio inicial, foi fundamental para construir:
 - Pensamento arquitetural em software complexo
