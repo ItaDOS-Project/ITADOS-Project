@@ -1,8 +1,9 @@
 ## Instruções para Instalação, execução e Compilação
 
 # 1. Clone o repositório
-git clone https://github.com/ItaDOS-Project/ITADOS-Project.git
-cd ITADOS-Project
+git clone https://github.com/ItaDOS-Project/ITADOS-Project.git  
+cd ITADOS-Project  
+
 Para baixar o repositório e instala-lo no seu ambiente local, clique no botão "clone", copie o link
 fornecido e cole no terminal do seu sistema seguido do comando "git clone" e pressione ENTER.
 é necessário possuir o git bash ou ferramentas semelhantes instaladas na sua máquina.
