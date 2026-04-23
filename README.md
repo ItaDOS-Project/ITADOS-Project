@@ -1,10 +1,10 @@
 # ITADOS Project - Protótipo de Sistema Operacional (2017)
 
-**Um projeto educacional ambicioso desenvolvido em C/C++ para explorar os fundamentos de sistemas operacionais.**
+**Um projeto ambicioso desenvolvido em C/C++ para explorar os fundamentos de sistemas operacionais e trazer de volta a experiência da computação retrotech.**
 
 ## 📖 Sobre o Projeto
 
-ITADOS nasceu em 2017 como uma iniciativa autodidata para entender na prática como sistemas operacionais funcionam. Embora as ambições iniciais fossem grandiosas (conforme manifesto original do ITADOS-Project, presente no repositório original), o foco prático do desenvolvimento foi na **camada de usuário**: implementação de um shell funcional e aplicações de sistema.
+ITADOS nasceu em 2017 como uma iniciativa autodidata de Aruni van Amstel para entender na prática como sistemas operacionais funcionam. Embora as ambições iniciais fossem grandiosas (conforme manifesto original do ITADOS-Project, presente no repositório original), o foco prático do desenvolvimento foi na **camada de usuário**: implementação de um shell funcional e aplicações de sistema.
 
 **Estado Atual:** Projeto em andamento, com legado de marco do meu aprendizado inicial em programação de sistemas.
 **Link do Repositório Original**: [https://github.com/ItaDOS-Project/ITADOS-Project]
@@ -24,15 +24,17 @@ Este projeto, mesmo em estágio inicial, foi fundamental para construir:
 - Processamento de linguagem e parsing de comandos
 - Debugging de baixo nível e resolução autodidata de problemas
 
-## 🚀 Contexto Histórico
+##  Contexto Histórico
 
 *O manifesto original de 2017 reflete a paixão e ambição que impulsionaram este projeto:*
 
 > "ITADOS é um projeto de sistema operacional simples e livre [...] que visa mesclar praticidade com robustez. Sua interface é gráfica, orientada a objetos. O objetivo é propor um novo sistema operacional, que seja seguro e robusto como o Linux, voltado para usuários que possuam um certo nível de conhecimento na área da computação..."
 
-## 📝 Notas do Autor
+##  Notas do Autor  
 
-Este projeto representa minha jornada inicial na programação. Hoje, como desenvolvedor full stack e analista de sistemas, valorizo cada lição aprendida aqui sobre arquitetura de software e resolução de problemas complexos - habilidades que aplico diariamente no desenvolvimento web moderno.
+Aruni van Amstel, autor do projeto, é um Analista de Sistemas, desenvolvedor fullstack e entusiasta de retrotech brasileiro.
+
+Este projeto representa a minha jornada inicial na computação. Hoje, como desenvolvedor full stack e analista de sistemas, valorizo cada lição aprendida aqui sobre arquitetura de software e resolução de problemas complexos - habilidades que aplico diariamente no desenvolvimento fullstack moderno.
 
 O projeto nunca foi completamente arquivado ou interrompido. Entre os hiatos dos anos, em 2023 e 2024 ele passou por algumas atualizações, conforme a evolução dos meus aprendizados
 sobre a estrutura de Sistemas Operacionais, estruturas de dados, engenharia e arquitetura de software. Essas atualizações infelzimente não foram publicadas na página original do
