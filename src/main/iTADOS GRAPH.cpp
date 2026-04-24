@@ -28,8 +28,8 @@
 #include "../include/disco.h"
 
 /// INSTANCIAS DE ESTRUTURAS
-Disco DiscoA;
-Disco DiscoB;
+//Disco DiscoA;
+//Disco DiscoB;
 
     DIR *d;
     struct dirent *dir;
@@ -947,7 +947,7 @@ void PrintaTime () {
 
 
 void Snake () {
-    system ("./SNAKE.exe");
+    system ("call ./SNAKE.exe");
 }
 
 void protecao () {
@@ -1212,7 +1212,7 @@ if ((Comando == "Itatexto.crasp") || (Comando == "ITATEXTO.CRASP")) { //
     PiscaTela ();
     Itatexto ();
 }
-if ((Comando == "Itatexto")|| (Comando == "ITATEXTO.CRASP")) system ("./ITATEXTO.EXE");
+if ((Comando == "Itatexto")|| (Comando == "ITATEXTO.CRASP")) system (".\\ITATEXTO.EXE");
 
 if ((Comando == "ITADOSGRAPH.CRASP") || (Comando == "Itadosgraph.crasp")) { // 
 
@@ -1609,6 +1609,7 @@ if ((Comando == "run") || (Comando == "RUN")) { //NM
      //cout << "O sistema nao pode encontrar a aplicacao ou comando solicitado " << endl;
      string avx = "";
      avx = "ITADOSCMD " + AplicacaoRodar;
+     system (("cd " + Pasta).c_str());
      system (avx.c_str());
      }
 
@@ -2718,12 +2719,14 @@ if ((CDX >= 1) && (CDX < 18)) { /// CARREGA UM PROGRAMA
             if (Parte == 6) {
             SelectProgramaExec ();
             gotoxy (38,13);
+            ShowConsoleCursor (true);
             getline (cin, AplicacaoRodar);
             if (AplicacaoRodar != "\n") {
                 string avx = "";
-                avx = "CMD " + AplicacaoRodar;
+                avx = "ITADOSCMD " + AplicacaoRodar;
                 system (avx.c_str());
             }
+            ShowConsoleCursor (false);
             system ("color f0");
             }
 
