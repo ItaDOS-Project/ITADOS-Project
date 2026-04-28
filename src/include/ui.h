@@ -10,6 +10,8 @@
 #include "console.h"
 using namespace std;
 
+char q = 219;
+
 /// FUNCOES DE IMPRESSAO DE MENSAGENS
 
 void MsgErrCopiarInv () {
@@ -494,6 +496,37 @@ void Tela_DiscoAVazio () {
     cout<<"__________________________________________________________________________________________________"<<endl;
 }
 
+void Tela_DiscoA_Default () {
+    cout<<" _________________________________________________________________________________________________ "<<endl;
+cout<<"| Itac   | Arquivo | Editar | Disco     | Visualizar   | Configuracoes |                          |"<<endl;
+cout<<"|_________________________________________________________________________________________________|"<<endl;
+cout<<"|                                                                                                 |"<<endl;
+cout<<"|                                                                                        ____     |"<<endl;
+cout<<"|  _______                                                                              |>   |    |"<<endl;
+cout<<"|  |o   =|                _______________________________________________               |    |    |"<<endl;
+cout<<"|  |_____|               | A:                                      |-|O|X|              |____|    |"<<endl;
+cout<<"|  v     v               |-----------------------------------------------|                        |"<<endl;
+cout<<"|  Itac HD               |  ___=_   ___=_   ___=_  |||||       ___=_     |               Dos      |"<<endl;
+cout<<"|                        | |    |  |    |  |    |  |TXT|      |    |     |                        |"<<endl;
+cout<<"|   ____                 | |____|  |____|  |____|  |||||      |____|     |               ___=_    |"<<endl;
+cout<<"|  |   |_                |DOS APPS  DK VOL  DOCS   DISK.TXT   ASM X86    |              |    |    |"<<endl;
+cout<<"|  | O  |                | |||||                                         |              |____|    |"<<endl;
+cout<<"|  |___A|                | |APP|                                         |                        |"<<endl;
+cout<<"|                        | |||||                                         |          Meus Arquivos |"<<endl;
+cout<<"|    A:                  | ITATEXTO                                      |                        |"<<endl;
+cout<<"|                        | |||||           |||||                         |                        |"<<endl;
+cout<<"|   ____     __=__       | |APP|           |   |                         |                        |"<<endl;
+cout<<"|  |   |_    |   |       | |||||           |||||                         |                        |"<<endl;
+cout<<"|  | O  |    |   |       | ITADRAW       CALCULADORA                     |                        |"<<endl;
+cout<<"|  |___B|    |___|       |                                               |                        |"<<endl;
+cout<<"|                        |_______________________________________________|                        |"<<endl;
+cout<<"|    B:      Lixo                                                                                 |"<<endl;
+cout<<"|                                                                                                 |"<<endl;
+cout<<"|                                                                                                 |"<<endl;
+cout<<"|                                                                                                 |"<<endl;
+cout<<"__________________________________________________________________________________________________"<<endl;
+}
+
 void Tela_DiscoB () {
     cout<<" _________________________________________________________________________________________________ "<<endl;
     cout<<"| Itac   | Arquivo | Editar | Disco     | Visualizar   | Configuracoes |                          |"<<endl;
@@ -554,6 +587,37 @@ void Tela_SelecionarDisco () {
     cout<<"__________________________________________________________________________________________________"<<endl;
 }
 
+void Tela_Itadraw () {
+     cout<<"__________________________________________________________________________________________________ "<<endl;
+cout<<"| ITADRAW | ARQUIVO | EDITAR | FERRAMENTAS | VISUALIZAR  | CONFIGURACOES | DESFAZER | SAIR | SAVE | "<<endl;
+cout<<"_________________________________________________________________________________________________  "<<endl;
+cout<<"|                                                                                                 |"<<endl;
+cout<<"|                                                                                                 |"<<endl;
+cout<<"|                                                                                                 |"<<endl;
+cout<<"|                                                                                                 |"<<endl;
+cout<<"|                                                                                                 |"<<endl;
+cout<<"|                                                                                                 |"<<endl;
+cout<<"|                                                                                                 |"<<endl;
+cout<<"|                                                                                                 |"<<endl;
+cout<<"|                                                                                                 |"<<endl;
+cout<<"|                                                                                                 |"<<endl;
+cout<<"|                                                                                                 |"<<endl;
+cout<<"|                                                                                                 |"<<endl;
+cout<<"|                                                                                                 |"<<endl;
+cout<<"|                                                                                                 |"<<endl;
+cout<<"|                                                                                                 |"<<endl;
+cout<<"|                                                                                                 |"<<endl;
+cout<<"|                                                                                                 |"<<endl;
+cout<<"|                                                                                                 |"<<endl;
+cout<<"|                                                                                                 |"<<endl;
+cout<<"|                                                                                                 |"<<endl;
+cout<<"|_________________________________________________________________________________________________|"<<endl;
+cout<<"|                                                                                                 |"<<endl;
+cout<<"|                                                                                                 |"<<endl;
+cout<<"|                                                                                                 |"<<endl;
+cout<<"__________________________________________________________________________________________________"<<endl;
+}
+
 void Tela_PastaTools () {
     cout<<"|_________________________________________________________________________________________________| "<<endl;
     cout<<"|                                                                                                 |"<<endl;
@@ -610,6 +674,66 @@ void Tela_DeskColor () {
     cout<<"|                                                                                                 |"<<endl;
     cout<<"|                                                                                                 |"<<endl;
     cout<<"__________________________________________________________________________________________________"<<endl;
+}
+
+void Tela_Configuracoes_Input () {
+cout<<"__________________________________________________________________________________________________ "<<endl;
+cout<<"| Itac   | Arquivo | Editar | Disco     | Visualizar   | Configuracoes |                         | "<<endl;
+cout<<"_________________________________________________________________________________________________  "<<endl;
+cout<<"|                                                                                                 |"<<endl;
+cout<<"|                                                                                       ______    |"<<endl;
+cout<<"|  _______               ________________________________________________               |>   |    |"<<endl;
+cout<<"|  |o    |              |                                                |              |    |    |"<<endl;
+cout<<"|  _______              |  SET        * INPUT *                          |              |    |    |"<<endl;
+cout<<"|  v     v              |   ___________                    ________      |              ______    |"<<endl;
+cout<<"|  Itac HD              |  | PRINTER   |     SERIAL PRL   |  13.5  |     |               Dos      |"<<endl;
+cout<<"|                       |   -----------                    --------      |                        |"<<endl;
+cout<<"|  _____                |   ___________                    ________      |              ____-_    |"<<endl;
+cout<<"|  |   |                |  | DISKDRIVE |     ACS / MODE   |  FAST  |     |              |    |    |"<<endl;
+cout<<"|  | O  |               |   -----------                    --------      |              |    |    |"<<endl;
+cout<<"|  |   E|               |   ___________                    ________      |              ______    |"<<endl;
+cout<<"|  ______               |  | JOYSTICK  |     DRV CLCK     |  OFF   |     |          Meus Arquivos |"<<endl;
+cout<<"|    A:                 |   -----------                    --------      |                        |"<<endl;
+cout<<"|                       |   ___________                                  |                        |"<<endl;
+cout<<"|  _____     __o__      |  |  OTHER... |          _________   _______    |                        |"<<endl;
+cout<<"|  |   |     |   |      |   -----------          | CANCEL  | | DONE  |   |                        |"<<endl;
+cout<<"|  | O  |    |   |      |________________________________________________|                        |"<<endl;
+cout<<"|  |   E|    |   |                                                                                |"<<endl;
+cout<<"|  ______    _____                                                                                |"<<endl;
+cout<<"|    B:      Lixo                                                                                 |"<<endl;
+cout<<"|                                                                                                 |"<<endl;
+cout<<"|                                                                                                 |"<<endl;
+cout<<"|                                                                                                 |"<<endl;
+cout<<"__________________________________________________________________________________________________"<<endl;
+}
+
+void Tela_Preferencias () {
+    cout<<"|______________________________________________________|||||||||||||||||_________________________ |"<<endl;
+cout<<"|                                                                                                 |"<<endl;
+cout<<"|                                                                                       ______    |"<<endl;
+cout<<"|  _______               ________________________________________________               |>   |    |"<<endl;
+cout<<"|  |o    |              |                                                |              |    |    |"<<endl;
+cout<<"|  _______              |          *** SYSTEM PREFERENCES ***            |              |    |    |"<<endl;
+cout<<"|  v     v              |   ___________                    ________      |              ______    |"<<endl;
+cout<<"|  Itac HD              |  | SET CLOCK |     MOUSE DELAY  |     S  |     |               Dos      |"<<endl;
+cout<<"|                       |   -----------                    --------      |                        |"<<endl;
+cout<<"|   ___                 |   ___________                    ________      |              ____-_    |"<<endl;
+cout<<"|  |   |                |  | DESK COLOR|     KEYBOARD SCT |        |     |              |    |    |"<<endl;
+cout<<"|  | O  |               |   -----------                    --------      |              |    |    |"<<endl;
+cout<<"|  |___E|               |   ___________                    ________      |              ______    |"<<endl;
+cout<<"|                       |  | CONSOLE   |     FILE CONFIRM |  OFF   |     |          Meus Arquivos |"<<endl;
+cout<<"|    A:                 |   -----------                    --------      |                        |"<<endl;
+cout<<"|                       |   ___________                                  |                        |"<<endl;
+cout<<"|   ___      __o__      |  |  OTHER... |  ______  _________   _______    |                        |"<<endl;
+cout<<"|  |   |     |   |      |   -----------  |RESET || CANCEL  | | SAVE  |   |                        |"<<endl;
+cout<<"|  | O  |    |   |      |________________________________________________|                        |"<<endl;
+cout<<"|  |___E|    |___|                                                                                |"<<endl;
+cout<<"|                                                                                                 |"<<endl;
+cout<<"|    B:      Lixo                                                                                 |"<<endl;
+cout<<"|                                                                                                 |"<<endl;
+cout<<"|                                                                                                 |"<<endl;
+cout<<"|                                                                                                 |"<<endl;
+cout<<"__________________________________________________________________________________________________"<<endl;
 }
 
 void Tela_NaoSuportaVGA () {
@@ -697,6 +821,80 @@ void Tela_ConfirmaFormatar () {
     cout<<"|                                                                                                 |"<<endl;
     cout<<"|                                                                                                 |"<<endl;
     cout<<"__________________________________________________________________________________________________"<<endl;
+}
+
+void Tela_Calculadora () {
+    cout<<"|_________|||INFO|||________|||SAIR|||____________________________________________________________| "<<endl;
+cout<<"|                                                                                                 |"<<endl;
+cout<<"|                                                                                                 |"<<endl;
+cout<<"|                                _________________________                                        |"<<endl;
+cout<<"|                               |CALCULADORA 1.3          |                                       |"<<endl;
+cout<<"|                                                                                                 |"<<endl;
+cout<<"|                                                                                                 |"<<endl;
+cout<<"|                               |_________________________|                                       |"<<endl;
+cout<<"|                               |                         |                                       |"<<endl;
+cout<<"|                               |   1    2     3     +    |                                       |"<<endl;
+cout<<"|                               |                         |                                       |"<<endl;
+cout<<"|                               |                         |                                       |"<<endl;
+cout<<"|                               |   4    5     6     -    |                                       |"<<endl;
+cout<<"|                               |                         |                                       |"<<endl;
+cout<<"|                               |                         |                                       |"<<endl;
+cout<<"|                               |   7    8     9     *    |                                       |"<<endl;
+cout<<"|                               |                         |                                       |"<<endl;
+cout<<"|                               |                         |                                       |"<<endl;
+cout<<"|                               |   C    0     =     /    |                                       |"<<endl;
+cout<<"|                               |                         |                                       |"<<endl;
+cout<<"|                               |                         |                                       |"<<endl;
+cout<<"|                               |_________________________|                                       |"<<endl;
+cout<<"|                                                                                                 |"<<endl;
+cout<<"|                                                                                                 |"<<endl;
+cout<<"|                                                                                                 |"<<endl;
+cout<<"__________________________________________________________________________________________________"<<endl;
+}
+
+bool Itadraw () {
+    system ("cls");
+    int Line = 1;
+    cout << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q <<  q << q << q ;
+    cout << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q <<  q << q << q <<  q << q <<  q << q << q <<   q << q << q << endl;
+    cout << q <<  "          ITADRAW V 1.8 FOR ITADOS COPYLEFT (C) ITAC INC 2017 - END TO EXIT" <<  q << endl;
+    cout << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q <<  q << q << q ;
+    cout << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q <<  q << q << q <<  q << q <<  q << q << q <<   q << q << q << endl;
+    cout << q <<  "                                                                           " <<  q << endl;
+    cout << q  << "                                                                           " << q  << endl;
+    cout << q  << "                                                                           " << q << endl;
+    cout << q  << "                                                                           " << q << endl;
+    cout << q  << "                                                                           "  << q << endl;
+    cout << q  << "                                                                           " << q << endl;
+    cout << q <<  "                                                                           "  << q << endl;
+    cout << q <<  "                                                                           "  << q << endl;
+    cout << q <<  "                                                                           " <<  q << endl;
+    cout << q <<  "                                                                           " <<  q << endl;
+    cout << q  << "                                                                           " << q  << endl;
+    cout << q  << "                                                                           " << q << endl;
+    cout << q  << "                                                                           " << q << endl;
+    cout << q  << "                                                                           "  << q << endl;
+    cout << q  << "                                                                           " << q << endl;
+    cout << q <<  "                                                                           "  << q << endl;
+    cout << q <<  "                                                                           "  << q << endl;
+    cout << q  << "                                                                           " << q << endl;
+    cout << q  << "                                                                           "  << q << endl;
+    cout << q  << "                                                                           " << q << endl;
+    cout << q <<  "                                                                           "  << q << endl;
+    cout << q <<  "                                                                           "  << q << endl;
+    cout << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q <<  q << q << q ;
+    cout << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q <<  q << q << q << q << q <<  q << q << q <<  q << q << q << endl;
+
+    while (GetAsyncKeyState(VK_END) == 0) {
+            gotoxy(10,10);
+            //cout << m;
+            //cout <<"I"
+    }
+
+
+    End:
+    Sleep (1000);
+    return true;
 }
 
 #endif

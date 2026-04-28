@@ -28,8 +28,8 @@
 #include "../include/disco.h"
 
 /// INSTANCIAS DE ESTRUTURAS
-Disco DiscoA;
-Disco DiscoB;
+//Disco DiscoA;
+//Disco DiscoB;
 
     DIR *d;
     struct dirent *dir;
@@ -69,7 +69,7 @@ string Aplicacao;
 string NOME;
 char LinhaDraw [20];
 int Teladesenho [100] [100];
-char q = 219;
+//char q = 219;
 char m = 30;
 char qd = 223;
 
@@ -415,51 +415,6 @@ Line++;
 goto Texto;
 
 End: /// PARA FECHAR O PROGRAMA
-Sleep (1000);
-return true;
-}
-
-bool Itadraw () {
-system ("cls");
-int Line = 1;
-cout << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q <<  q << q << q ;
-cout << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q <<  q << q << q <<  q << q <<  q << q << q <<   q << q << q << endl;
-cout << q <<  "          ITADRAW V 1.8 FOR ITADOS COPYLEFT (C) ITAC INC 2017 - END TO EXIT" <<  q << endl;
-cout << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q <<  q << q << q ;
-cout << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q <<  q << q << q <<  q << q <<  q << q << q <<   q << q << q << endl;
-cout << q <<  "                                                                           " <<  q << endl;
-cout << q  << "                                                                           " << q  << endl;
-cout << q  << "                                                                           " << q << endl;
-cout << q  << "                                                                           " << q << endl;
-cout << q  << "                                                                           "  << q << endl;
-cout << q  << "                                                                           " << q << endl;
-cout << q <<  "                                                                           "  << q << endl;
-cout << q <<  "                                                                           "  << q << endl;
-cout << q <<  "                                                                           " <<  q << endl;
-cout << q <<  "                                                                           " <<  q << endl;
-cout << q  << "                                                                           " << q  << endl;
-cout << q  << "                                                                           " << q << endl;
-cout << q  << "                                                                           " << q << endl;
-cout << q  << "                                                                           "  << q << endl;
-cout << q  << "                                                                           " << q << endl;
-cout << q <<  "                                                                           "  << q << endl;
-cout << q <<  "                                                                           "  << q << endl;
-cout << q  << "                                                                           " << q << endl;
-cout << q  << "                                                                           "  << q << endl;
-cout << q  << "                                                                           " << q << endl;
-cout << q <<  "                                                                           "  << q << endl;
-cout << q <<  "                                                                           "  << q << endl;
-cout << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q <<  q << q << q ;
-cout << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q <<  q << q << q << q << q <<  q << q << q <<  q << q << q << endl;
-
-while (GetAsyncKeyState(VK_END) == 0) {
-           gotoxy(10,10);
-           cout << m;
-           //cout <<"I"
-}
-
-
-End:
 Sleep (1000);
 return true;
 }
@@ -947,7 +902,7 @@ void PrintaTime () {
 
 
 void Snake () {
-    system ("./SNAKE.exe");
+    system ("call ./SNAKE.exe");
 }
 
 void protecao () {
@@ -1208,11 +1163,11 @@ if (Comando == "\n") {
 goto Cmd;
 }
 
-if ((Comando == "Itatexto.crasp") || (Comando == "ITATEXTO.CRASP")) { // 
+if ((Comando == "Itatexto") || (Comando == "ITATEXTO")) { // 
     PiscaTela ();
     Itatexto ();
 }
-if ((Comando == "Itatexto")|| (Comando == "ITATEXTO.CRASP")) system ("./ITATEXTO.EXE");
+if ((Comando == "Itatexto.crasp")|| (Comando == "ITATEXTO.CRASP")) system (".\\ITATEXTO.EXE");
 
 if ((Comando == "ITADOSGRAPH.CRASP") || (Comando == "Itadosgraph.crasp")) { // 
 
@@ -1285,18 +1240,6 @@ if ((Comando == "config") || (Comando == "CONFIG")) { // Menu de configurações
 
 if ((Subcomando == "inputmode")||(Subcomando == "INPUTMODE")) inputmode = !inputmode;
  
-if (Subcomando == "scrbht-") {
-        Brilho--;
-        cout << Brilho << endl;
-}
- if (Subcomando == "scrbht+") {
-        Brilho++;
-        cout << Brilho << endl;
-}
-if (Subcomando == "scrld") {
-        cin >> LightDuration;
-        cout << LightDuration << endl;
-} // 
 if (Subcomando == "scrcolor?") {
         system ("color ?");
 } // 
@@ -1304,25 +1247,7 @@ if ((Subcomando == "scrcolor")||(Subcomando == "SCRCOLOR")) {
 cin >> Corsys;
         system (("color " + Corsys).c_str());
 } // 
-if (Subcomando == "vbon") {
-        ModoVibracao = 1;
-        cout << "Modo vibratorio ativado" << endl;
-} // 
-if (Subcomando == "vboff") {
-        ModoVibracao = 0;
-        cout << "Modo vibratorio desativado" << endl;
-}
-if (Subcomando == "btrecoon ") {
-        EconomiadeBateria = 1;
-        cout << "Modo economico ativado" << endl;
-}
-if (Subcomando == "btrecooff") {
-        EconomiadeBateria = 0;
-        cout << "Modo economico desativado" << endl;
-}
-if (Subcomando == "build>setup_v143") {
-cout << "Done" << endl;
-}
+
 if (Subcomando == "infosystem") {
 cout << "X64 bits System" << endl;
 }
@@ -1396,24 +1321,11 @@ if ((Comando == "pchar") || (Comando == "PCHAR")) {
     cout << (char) NovoValor;
 }
 
-if (Comando == "point") {
-    cout << endl;
-    cout << endl;
-    cout << endl;
-    cout << endl;
-    cout << endl;
-    cout << endl;
-    cout << endl;
-    cout << endl;
-    cout << endl;
-    cout << "Line found, on <35> up, <4> left" << endl;
-}
-
 if ((Comando == "jump" ) || (Comando == "JUMP" )) {
         cin >> X;
         cin >> Y;
     gotoxy (X,Y);
-  //  goto Comd;
+  
 }
 
 
@@ -1421,14 +1333,12 @@ if ((Comando == "scrwrite" )|| (Comando == "SCRWRITE" )) {
         string Scrwrite;
         cin >> Scrwrite;
         cout << Scrwrite;
-  //  goto Comd;
 }
 
 if ((Comando == "echo" ) || (Comando == "ECHO" )) {
         string Scrwrite;
         getline (cin, Scrwrite);
         cout << Scrwrite << endl;
-  //  goto Comd;
 }
 
 if ((Comando == "@echo" ) || (Comando == "@ECHO" )) {
@@ -1449,22 +1359,19 @@ if ((Comando == "newln" ) || (Comando == "NEWLN" ) || (Comando == "echo." ) || (
     cout << endl;
 }
 
-  //  goto Comd;
+  
 }
 if ((Comando == "Padron" )||(Comando == "padron" )||(Comando == "PADRON" )) {
         cin >> Padron;
         cout << "O texto padrao foi definido como " << Padron << endl;
         Padron1=1;
-  //  goto Comd;
 }
 if ((Comando == "Textreset" )||(Comando == "textreset" )||(Comando == "TEXTRESET" )) {
         Padron1 = 0;
         cout << "O texto padrao foi redefinido"<< endl;
-  //  goto Comd;
 }
 if ((Comando == "version" )||(Comando == "VERSION" )) {
         cout << "Current Version 1.8.3 0000134020180127"<< endl;
-  //  goto Comd;
 }
 if (Comando == "verify" ) {
         cin >> Arquivoaprocurar;
@@ -1509,20 +1416,17 @@ if ((Comando == "sudo")||(Comando == "SUDO")) {
         cout << " TOOLS - Disponibiliza todas as possibilidades do toolkit SUDO" << endl << endl;
 }
  if (Subcomando == "get_package") {
-        Brilho--;
-        cout << Brilho << endl;
+
 }
  if (Subcomando == "boost") {
-        Brilho++;
-        cout << Brilho << endl;
+
 }
 if (Subcomando == "config_bootloader") {
-        cin >> LightDuration;
-        cout << LightDuration << endl;
-} // 
+
+} 
 if (Subcomando == "change_password") {
         cin >> pin2;
-} // 
+}  
 if (Subcomando == "reboot") {
 //ShowConsoleCursor(false);
 ShowConsoleCursor(false);
@@ -1533,7 +1437,7 @@ ShowConsoleCursor(true);
 goto Inic;
 } // 
 if (Subcomando == "acess") {
-        ModoVibracao = 0;
+     
  cout << "done" << endl;
 }
 if (Subcomando == "eco_mode") {
@@ -1558,33 +1462,14 @@ if (Subcomando == "su") {
 
 }
 
-if (Comando == "Program" ) {
-        cin >> Program;
-        cout << "Funcao Programada para o CLI"<< endl;
-  //  goto Comd;
-}
-if (Comando == "RunProgram" ) {
-        cout << Program << endl;
-        cout << "Funcao retornada para o CLI"<< endl;
-  //  goto Comd;
-}
-
 if (Comando == "ConversordeDiabanos" ) {
         int Diabanos;
         cin >> Diabanos;
         cout << Program << endl;
         cout << Diabanos * (23548680 / 540000)<< endl;
-  //  goto Comd;
+  
 }
 
-if (Comando == "layout") { //NM
-     cout << endl;
-     system ("color"); // mod
-}
-if (Comando == "reload_ls") { // CARREGA A ULTIMA SESSAO LOGADA NO SUDO
-     cout << endl;
-     system ("color"); // mod
-}
 ///  /////////////////////////////////
 if ((Comando == "run") || (Comando == "RUN")) { //NM
      cin >> AplicacaoRodar;
@@ -1609,6 +1494,7 @@ if ((Comando == "run") || (Comando == "RUN")) { //NM
      //cout << "O sistema nao pode encontrar a aplicacao ou comando solicitado " << endl;
      string avx = "";
      avx = "ITADOSCMD " + AplicacaoRodar;
+     system (("cd " + Pasta).c_str());
      system (avx.c_str());
      }
 
@@ -1968,83 +1854,27 @@ Tela_Info ();
 Tela_MenuArquivo();
 }
 else if (Parte == 9) {
-        if ( ! ((DiskAFile == "DEFAULT") || (DiskAFile == "DEFAULT"))) {
-Tela_DiscoAVazio ();
-gotoxy (30,7);
-cout << DiskALabel;
-if (ModoVisualisar == "Icons") {
-PrintDiskIcons ('A');
-} else {
-PrintDiskFiles ('A');
-}
+    if ( ! ((DiskAFile == "DEFAULT") || (DiskAFile == "DEFAULT"))) {
+        Tela_DiscoAVazio ();
+        gotoxy (30,7);
+        cout << DiskALabel;
+        if (ModoVisualisar == "Icons") {
+            PrintDiskIcons ('A');
         } else {
-cout<<" _________________________________________________________________________________________________ "<<endl;
-cout<<"| Itac   | Arquivo | Editar | Disco     | Visualizar   | Configuracoes |                          |"<<endl;
-cout<<"|_________________________________________________________________________________________________|"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                        ____     |"<<endl;
-cout<<"|  _______                                                                              |>   |    |"<<endl;
-cout<<"|  |o   =|                _______________________________________________               |    |    |"<<endl;
-cout<<"|  |_____|               | A:                                      |-|O|X|              |____|    |"<<endl;
-cout<<"|  v     v               |-----------------------------------------------|                        |"<<endl;
-cout<<"|  Itac HD               |  ___=_   ___=_   ___=_  |||||       ___=_     |               Dos      |"<<endl;
-cout<<"|                        | |    |  |    |  |    |  |TXT|      |    |     |                        |"<<endl;
-cout<<"|   ____                 | |____|  |____|  |____|  |||||      |____|     |               ___=_    |"<<endl;
-cout<<"|  |   |_                |DOS APPS  DK VOL  DOCS   DISK.TXT   ASM X86    |              |    |    |"<<endl;
-cout<<"|  | O  |                | |||||                                         |              |____|    |"<<endl;
-cout<<"|  |___A|                | |APP|                                         |                        |"<<endl;
-cout<<"|                        | |||||                                         |          Meus Arquivos |"<<endl;
-cout<<"|    A:                  | ITATEXTO                                      |                        |"<<endl;
-cout<<"|                        | |||||           |||||                         |                        |"<<endl;
-cout<<"|   ____     __=__       | |APP|           |   |                         |                        |"<<endl;
-cout<<"|  |   |_    |   |       | |||||           |||||                         |                        |"<<endl;
-cout<<"|  | O  |    |   |       | ITADRAW       CALCULADORA                     |                        |"<<endl;
-cout<<"|  |___B|    |___|       |                                               |                        |"<<endl;
-cout<<"|                        |_______________________________________________|                        |"<<endl;
-cout<<"|    B:      Lixo                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"__________________________________________________________________________________________________"<<endl;
-gotoxy (30,7);
-cout << DiskALabel;
-
+            PrintDiskFiles ('A');
         }
+    } else {
+        Tela_DiscoA_Default ();
+        gotoxy (30,7);
+        cout << DiskALabel;
+    }
 
 
 } else if (Parte == 13) {
     //Aplicacao = "Itadraw";
     //system ("cls");
- cout<<"__________________________________________________________________________________________________ "<<endl;
-cout<<"| ITADRAW | ARQUIVO | EDITAR | FERRAMENTAS | VISUALIZAR  | CONFIGURACOES | DESFAZER | SAIR | SAVE | "<<endl;
-cout<<"_________________________________________________________________________________________________  "<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|_________________________________________________________________________________________________|"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"__________________________________________________________________________________________________"<<endl;
-//cout << Comando;
-//int Teladesenho [100] [100];
+Tela_Itadraw ();
+
 for (int i = 0; i < 100; i++) {
     for (int d = 0; d < 100; d++) {
 if (Teladesenho [i] [d] == 1) {
@@ -2280,95 +2110,25 @@ cout<<"_________________________________________________________________________
 } else if (Parte == 16) {
     Tela_SelecionarDisco ();
 } else if (Parte == 18) {
-cout<<"|_________|||INFO|||________|||SAIR|||____________________________________________________________| "<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                _________________________                                        |"<<endl;
-cout<<"|                               |CALCULADORA 1.3          |                                       |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                               |_________________________|                                       |"<<endl;
-cout<<"|                               |                         |                                       |"<<endl;
-cout<<"|                               |   1    2     3     +    |                                       |"<<endl;
-cout<<"|                               |                         |                                       |"<<endl;
-cout<<"|                               |                         |                                       |"<<endl;
-cout<<"|                               |   4    5     6     -    |                                       |"<<endl;
-cout<<"|                               |                         |                                       |"<<endl;
-cout<<"|                               |                         |                                       |"<<endl;
-cout<<"|                               |   7    8     9     *    |                                       |"<<endl;
-cout<<"|                               |                         |                                       |"<<endl;
-cout<<"|                               |                         |                                       |"<<endl;
-cout<<"|                               |   C    0     =     /    |                                       |"<<endl;
-cout<<"|                               |                         |                                       |"<<endl;
-cout<<"|                               |                         |                                       |"<<endl;
-cout<<"|                               |_________________________|                                       |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"__________________________________________________________________________________________________"<<endl;
+    Tela_Calculadora ();
 
 } else if (Parte == 20) {
 Tela_MenuDisco ();
 } else if (Parte == 21) {
 Tela_SelectInput ();
 } else if (Parte == 22) {
-cout<<"__________________________________________________________________________________________________ "<<endl;
-cout<<"| Itac   | Arquivo | Editar | Disco     | Visualizar   | Configuracoes |                         | "<<endl;
-cout<<"_________________________________________________________________________________________________  "<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                       ______    |"<<endl;
-cout<<"|  _______               ________________________________________________               |>   |    |"<<endl;
-cout<<"|  |o    |              |                                                |              |    |    |"<<endl;
-cout<<"|  _______              |  SET " << InputPort << "   * INPUT *                          |              |    |    |"<<endl;
-cout<<"|  v     v              |   ___________                    ________      |              ______    |"<<endl;
-cout<<"|  Itac HD              |  | PRINTER   |     SERIAL PRL   |  13.5  |     |               Dos      |"<<endl;
-cout<<"|                       |   -----------                    --------      |                        |"<<endl;
-cout<<"|  _____                |   ___________                    ________      |              ____-_    |"<<endl;
-cout<<"|  |   |                |  | DISKDRIVE |     ACS / MODE   |  FAST  |     |              |    |    |"<<endl;
-cout<<"|  | O  |               |   -----------                    --------      |              |    |    |"<<endl;
-cout<<"|  |   E|               |   ___________                    ________      |              ______    |"<<endl;
-cout<<"|  ______               |  | JOYSTICK  |     DRV CLCK     |  OFF   |     |          Meus Arquivos |"<<endl;
-cout<<"|    A:                 |   -----------                    --------      |                        |"<<endl;
-cout<<"|                       |   ___________                                  |                        |"<<endl;
-cout<<"|  _____     __o__      |  |  OTHER... |          _________   _______    |                        |"<<endl;
-cout<<"|  |   |     |   |      |   -----------          | CANCEL  | | DONE  |   |                        |"<<endl;
-cout<<"|  | O  |    |   |      |________________________________________________|                        |"<<endl;
-cout<<"|  |   E|    |   |                                                                                |"<<endl;
-cout<<"|  ______    _____                                                                                |"<<endl;
-cout<<"|    B:      Lixo                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"__________________________________________________________________________________________________"<<endl;
+Tela_Configuracoes_Input ();
+gotoxy (40,7);
+cout << InputPort;
+
 } else if (Parte == 23) {
     Tela_PastaTools ();
 } else if (Parte == 24) {
-cout<<"|______________________________________________________|||||||||||||||||_________________________ |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                       ______    |"<<endl;
-cout<<"|  _______               ________________________________________________               |>   |    |"<<endl;
-cout<<"|  |o    |              |                                                |              |    |    |"<<endl;
-cout<<"|  _______              |          *** SYSTEM PREFERENCES ***            |              |    |    |"<<endl;
-cout<<"|  v     v              |   ___________                    ________      |              ______    |"<<endl;
-cout<<"|  Itac HD              |  | SET CLOCK |     MOUSE DELAY  |  " << MouseDelay << "S  |     |               Dos      |"<<endl;
-cout<<"|                       |   -----------                    --------      |                        |"<<endl;
-cout<<"|   ___                 |   ___________                    ________      |              ____-_    |"<<endl;
-cout<<"|  |   |                |  | DESK COLOR|     KEYBOARD SCT | " << KBSct << /*ENABLED*/"|     |              |    |    |"<<endl;
-cout<<"|  | O  |               |   -----------                    --------      |              |    |    |"<<endl;
-cout<<"|  |___E|               |   ___________                    ________      |              ______    |"<<endl;
-cout<<"|                       |  | CONSOLE   |     FILE CONFIRM |  OFF   |     |          Meus Arquivos |"<<endl;
-cout<<"|    A:                 |   -----------                    --------      |                        |"<<endl;
-cout<<"|                       |   ___________                                  |                        |"<<endl;
-cout<<"|   ___      __o__      |  |  OTHER... |  ______  _________   _______    |                        |"<<endl;
-cout<<"|  |   |     |   |      |   -----------  |RESET || CANCEL  | | SAVE  |   |                        |"<<endl;
-cout<<"|  | O  |    |   |      |________________________________________________|                        |"<<endl;
-cout<<"|  |___E|    |___|                                                                                |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|    B:      Lixo                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"|                                                                                                 |"<<endl;
-cout<<"__________________________________________________________________________________________________"<<endl;
+    Tela_Preferencias ();
+    gotoxy (69, 7);
+    cout << MouseDelay;
+    gotoxy (68, 10);
+    cout <<  KBSct;
 } else if (Parte == 25) {
 Tela_MenuView ();
     if (ModoVisualisar == "Icons") {
@@ -2718,12 +2478,14 @@ if ((CDX >= 1) && (CDX < 18)) { /// CARREGA UM PROGRAMA
             if (Parte == 6) {
             SelectProgramaExec ();
             gotoxy (38,13);
+            ShowConsoleCursor (true);
             getline (cin, AplicacaoRodar);
             if (AplicacaoRodar != "\n") {
                 string avx = "";
-                avx = "CMD " + AplicacaoRodar;
+                avx = "ITADOSCMD " + AplicacaoRodar;
                 system (avx.c_str());
             }
+            ShowConsoleCursor (false);
             system ("color f0");
             }
 
@@ -3847,53 +3609,10 @@ if (Aplicacao == "Itadraw") { /// PINCEL
 /*if (ModoItadraw == "Pincel") { */
 if (GetAsyncKeyState (VK_SPACE) != 0) {
 
-          if (Corselec == 1) {
-          Teladesenho [x] [y] = 1;
-          } else if (Corselec == 2) {
-          Teladesenho [x] [y] = 2;
-
-          } else if (Corselec == 3) {
-          Teladesenho [x] [y] = 3;
-
-          } else if (Corselec == 4) {
-          Teladesenho [x] [y] = 4;
-
-          } else if (Corselec == 5) {
-          Teladesenho [x] [y] = 5;
-
-          } else if (Corselec == 6) {
-          Teladesenho [x] [y] = 6;
-
-          } else if (Corselec == 7) {
-          Teladesenho [x] [y] = 7;
-
-          } else if (Corselec == 8) {
-          Teladesenho [x] [y] = 8;
-
-          } else if (Corselec == 9) {
-          Teladesenho [x] [y] = 9;
-
-          } else if (Corselec == 10) {
-          Teladesenho [x] [y] = 10;
-
-          } else if (Corselec == 11) {
-          Teladesenho [x] [y] = 11;
-
-          } else if (Corselec == 12) {
-          Teladesenho [x] [y] = 12;
-
-          } else if (Corselec == 13) {
-          Teladesenho [x] [y] = 13;
-
-          } else if (Corselec == 14) {
-          Teladesenho [x] [y] = 14;
-
-          } else if (Corselec == 15) {
-          Teladesenho [x] [y] = 15;
-
+          if (Corselec >= 1 && Corselec <= 15) {
+          Teladesenho [x] [y] = Corselec;
           } else if (Corselec == 800) {
           Teladesenho [x] [y] = 0;
-
           } else {
           Teladesenho [x] [y] = 1;
           }
@@ -3905,53 +3624,10 @@ if (Aplicacao == "Itadraw") { /// PINCEL
 /*if (ModoItadraw == "Pincel") { */
 if (GetAsyncKeyState ('S') != 0) {
         for (int i = 0; i < 95; i++) {
-                 if (Corselec == 1) {
-          Teladesenho [i] [CDY] = 1;
-          } else if (Corselec == 2) {
-          Teladesenho [i] [CDY] = 2;
-
-          } else if (Corselec == 3) {
-          Teladesenho [i] [CDY] = 3;
-
-          } else if (Corselec == 4) {
-          Teladesenho [i] [CDY] = 4;
-
-          } else if (Corselec == 5) {
-          Teladesenho [i] [CDY] = 5;
-
-          } else if (Corselec == 6) {
-          Teladesenho [i] [CDY] = 6;
-
-          } else if (Corselec == 7) {
-          Teladesenho [i] [CDY] = 7;
-
-          } else if (Corselec == 8) {
-          Teladesenho [i] [CDY] = 8;
-
-          } else if (Corselec == 9) {
-          Teladesenho [i] [CDY] = 9;
-
-          } else if (Corselec == 10) {
-          Teladesenho [i] [CDY] = 10;
-
-          } else if (Corselec == 11) {
-          Teladesenho [i] [CDY] = 11;
-
-          } else if (Corselec == 12) {
-          Teladesenho [i] [CDY] = 12;
-
-          } else if (Corselec == 13) {
-          Teladesenho [i] [CDY] = 13;
-
-          } else if (Corselec == 14) {
-          Teladesenho [i] [CDY] = 14;
-
-          } else if (Corselec == 15) {
-          Teladesenho [i] [CDY] = 15;
-
+                 if (Corselec >= 1 && Corselec <= 15) {
+          Teladesenho [i] [CDY] = Corselec;
           } else if (Corselec == 800) {
           Teladesenho [i] [CDY] = 0;
-
           } else {
           Teladesenho [i] [CDY] = 1;
           }
@@ -3976,53 +3652,10 @@ if (GetAsyncKeyState (VK_F5) != 0) {
         cin >> Altura;
         for (int i = CDX; i < CDX+Largura; i++) { /// X
             for (int d = CDY; d < CDY+Altura; d++) {
-                                    if (Corselec == 1) {
-          Teladesenho [i] [d] = 1;
-          } else if (Corselec == 2) {
-          Teladesenho [i] [d] = 2;
-
-          } else if (Corselec == 3) {
-          Teladesenho [i] [d] = 3;
-
-          } else if (Corselec == 4) {
-          Teladesenho [i] [d] = 4;
-
-          } else if (Corselec == 5) {
-          Teladesenho [i] [d] = 5;
-
-          } else if (Corselec == 6) {
-          Teladesenho [i] [d] = 6;
-
-          } else if (Corselec == 7) {
-          Teladesenho [i] [d] = 7;
-
-          } else if (Corselec == 8) {
-          Teladesenho [i] [d] = 8;
-
-          } else if (Corselec == 9) {
-          Teladesenho [i] [d] = 9;
-
-          } else if (Corselec == 10) {
-          Teladesenho [i] [d] = 10;
-
-          } else if (Corselec == 11) {
-          Teladesenho [i] [d] = 11;
-
-          } else if (Corselec == 12) {
-          Teladesenho [i] [d] = 12;
-
-          } else if (Corselec == 13) {
-          Teladesenho [i] [d] = 13;
-
-          } else if (Corselec == 14) {
-          Teladesenho [i] [d] = 14;
-
-          } else if (Corselec == 15) {
-          Teladesenho [i] [d] = 15;
-
+                                    if (Corselec >= 1 && Corselec <= 15) {
+          Teladesenho [i] [d] = Corselec;
           } else if (Corselec == 800) {
           Teladesenho [i] [d] = 0;
-
           } else {
           Teladesenho [i] [d] = 1;
           }
@@ -4060,49 +3693,9 @@ void left_down(int x, int y, void*p)
      CDX = x;
      CDY = y;
           if (Aplicacao == "Itadraw") {
-                      if (Corselec == 1) {
-          Teladesenho [CDX] [CDY] = 1;
-          } else if (Corselec == 2) {
-          Teladesenho [CDX] [CDY] = 2;
 
-          } else if (Corselec == 3) {
-          Teladesenho [CDX] [CDY] = 3;
-
-          } else if (Corselec == 4) {
-          Teladesenho [CDX] [CDY] = 4;
-
-          } else if (Corselec == 5) {
-          Teladesenho [CDX] [CDY] = 5;
-
-          } else if (Corselec == 6) {
-          Teladesenho [CDX] [CDY] = 6;
-
-          } else if (Corselec == 7) {
-          Teladesenho [CDX] [CDY] = 7;
-
-          } else if (Corselec == 8) {
-          Teladesenho [CDX] [CDY] = 8;
-
-          } else if (Corselec == 9) {
-          Teladesenho [CDX] [CDY] = 9;
-
-          } else if (Corselec == 10) {
-          Teladesenho [CDX] [CDY] = 10;
-
-          } else if (Corselec == 11) {
-          Teladesenho [CDX] [CDY] = 11;
-
-          } else if (Corselec == 12) {
-          Teladesenho [CDX] [CDY] = 12;
-
-          } else if (Corselec == 13) {
-          Teladesenho [CDX] [CDY] = 13;
-
-          } else if (Corselec == 14) {
-          Teladesenho [CDX] [CDY] = 14;
-
-          } else if (Corselec == 15) {
-          Teladesenho [CDX] [CDY] = 15;
+          if (Corselec >= 1 && Corselec <= 15) {
+          Teladesenho [CDX] [CDY] = Corselec;
 
           } else if (Corselec == 800) {
           Teladesenho [CDX] [CDY] = 0;
@@ -4110,8 +3703,7 @@ void left_down(int x, int y, void*p)
           } else {
           Teladesenho [CDX] [CDY] = 1;
           }
-
-     }
+        }
 }
 
 void left_up(int x, int y, void*p)
