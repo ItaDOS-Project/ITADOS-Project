@@ -3735,53 +3735,10 @@ if (Aplicacao == "Itadraw") { /// PINCEL
 /*if (ModoItadraw == "Pincel") { */
 if (GetAsyncKeyState (VK_SPACE) != 0) {
 
-          if (Corselec == 1) {
-          Teladesenho [x] [y] = 1;
-          } else if (Corselec == 2) {
-          Teladesenho [x] [y] = 2;
-
-          } else if (Corselec == 3) {
-          Teladesenho [x] [y] = 3;
-
-          } else if (Corselec == 4) {
-          Teladesenho [x] [y] = 4;
-
-          } else if (Corselec == 5) {
-          Teladesenho [x] [y] = 5;
-
-          } else if (Corselec == 6) {
-          Teladesenho [x] [y] = 6;
-
-          } else if (Corselec == 7) {
-          Teladesenho [x] [y] = 7;
-
-          } else if (Corselec == 8) {
-          Teladesenho [x] [y] = 8;
-
-          } else if (Corselec == 9) {
-          Teladesenho [x] [y] = 9;
-
-          } else if (Corselec == 10) {
-          Teladesenho [x] [y] = 10;
-
-          } else if (Corselec == 11) {
-          Teladesenho [x] [y] = 11;
-
-          } else if (Corselec == 12) {
-          Teladesenho [x] [y] = 12;
-
-          } else if (Corselec == 13) {
-          Teladesenho [x] [y] = 13;
-
-          } else if (Corselec == 14) {
-          Teladesenho [x] [y] = 14;
-
-          } else if (Corselec == 15) {
-          Teladesenho [x] [y] = 15;
-
+          if (Corselec >= 1 && Corselec <= 15) {
+          Teladesenho [x] [y] = Corselec;
           } else if (Corselec == 800) {
           Teladesenho [x] [y] = 0;
-
           } else {
           Teladesenho [x] [y] = 1;
           }
@@ -3793,53 +3750,10 @@ if (Aplicacao == "Itadraw") { /// PINCEL
 /*if (ModoItadraw == "Pincel") { */
 if (GetAsyncKeyState ('S') != 0) {
         for (int i = 0; i < 95; i++) {
-                 if (Corselec == 1) {
-          Teladesenho [i] [CDY] = 1;
-          } else if (Corselec == 2) {
-          Teladesenho [i] [CDY] = 2;
-
-          } else if (Corselec == 3) {
-          Teladesenho [i] [CDY] = 3;
-
-          } else if (Corselec == 4) {
-          Teladesenho [i] [CDY] = 4;
-
-          } else if (Corselec == 5) {
-          Teladesenho [i] [CDY] = 5;
-
-          } else if (Corselec == 6) {
-          Teladesenho [i] [CDY] = 6;
-
-          } else if (Corselec == 7) {
-          Teladesenho [i] [CDY] = 7;
-
-          } else if (Corselec == 8) {
-          Teladesenho [i] [CDY] = 8;
-
-          } else if (Corselec == 9) {
-          Teladesenho [i] [CDY] = 9;
-
-          } else if (Corselec == 10) {
-          Teladesenho [i] [CDY] = 10;
-
-          } else if (Corselec == 11) {
-          Teladesenho [i] [CDY] = 11;
-
-          } else if (Corselec == 12) {
-          Teladesenho [i] [CDY] = 12;
-
-          } else if (Corselec == 13) {
-          Teladesenho [i] [CDY] = 13;
-
-          } else if (Corselec == 14) {
-          Teladesenho [i] [CDY] = 14;
-
-          } else if (Corselec == 15) {
-          Teladesenho [i] [CDY] = 15;
-
+                 if (Corselec >= 1 && Corselec <= 15) {
+          Teladesenho [i] [CDY] = Corselec;
           } else if (Corselec == 800) {
           Teladesenho [i] [CDY] = 0;
-
           } else {
           Teladesenho [i] [CDY] = 1;
           }
@@ -3864,53 +3778,10 @@ if (GetAsyncKeyState (VK_F5) != 0) {
         cin >> Altura;
         for (int i = CDX; i < CDX+Largura; i++) { /// X
             for (int d = CDY; d < CDY+Altura; d++) {
-                                    if (Corselec == 1) {
-          Teladesenho [i] [d] = 1;
-          } else if (Corselec == 2) {
-          Teladesenho [i] [d] = 2;
-
-          } else if (Corselec == 3) {
-          Teladesenho [i] [d] = 3;
-
-          } else if (Corselec == 4) {
-          Teladesenho [i] [d] = 4;
-
-          } else if (Corselec == 5) {
-          Teladesenho [i] [d] = 5;
-
-          } else if (Corselec == 6) {
-          Teladesenho [i] [d] = 6;
-
-          } else if (Corselec == 7) {
-          Teladesenho [i] [d] = 7;
-
-          } else if (Corselec == 8) {
-          Teladesenho [i] [d] = 8;
-
-          } else if (Corselec == 9) {
-          Teladesenho [i] [d] = 9;
-
-          } else if (Corselec == 10) {
-          Teladesenho [i] [d] = 10;
-
-          } else if (Corselec == 11) {
-          Teladesenho [i] [d] = 11;
-
-          } else if (Corselec == 12) {
-          Teladesenho [i] [d] = 12;
-
-          } else if (Corselec == 13) {
-          Teladesenho [i] [d] = 13;
-
-          } else if (Corselec == 14) {
-          Teladesenho [i] [d] = 14;
-
-          } else if (Corselec == 15) {
-          Teladesenho [i] [d] = 15;
-
+                                    if (Corselec >= 1 && Corselec <= 15) {
+          Teladesenho [i] [d] = Corselec;
           } else if (Corselec == 800) {
           Teladesenho [i] [d] = 0;
-
           } else {
           Teladesenho [i] [d] = 1;
           }
