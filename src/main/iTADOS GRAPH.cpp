@@ -419,51 +419,6 @@ Sleep (1000);
 return true;
 }
 
-bool Itadraw () {
-system ("cls");
-int Line = 1;
-cout << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q <<  q << q << q ;
-cout << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q <<  q << q << q <<  q << q <<  q << q << q <<   q << q << q << endl;
-cout << q <<  "          ITADRAW V 1.8 FOR ITADOS COPYLEFT (C) ITAC INC 2017 - END TO EXIT" <<  q << endl;
-cout << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q <<  q << q << q ;
-cout << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q <<  q << q << q <<  q << q <<  q << q << q <<   q << q << q << endl;
-cout << q <<  "                                                                           " <<  q << endl;
-cout << q  << "                                                                           " << q  << endl;
-cout << q  << "                                                                           " << q << endl;
-cout << q  << "                                                                           " << q << endl;
-cout << q  << "                                                                           "  << q << endl;
-cout << q  << "                                                                           " << q << endl;
-cout << q <<  "                                                                           "  << q << endl;
-cout << q <<  "                                                                           "  << q << endl;
-cout << q <<  "                                                                           " <<  q << endl;
-cout << q <<  "                                                                           " <<  q << endl;
-cout << q  << "                                                                           " << q  << endl;
-cout << q  << "                                                                           " << q << endl;
-cout << q  << "                                                                           " << q << endl;
-cout << q  << "                                                                           "  << q << endl;
-cout << q  << "                                                                           " << q << endl;
-cout << q <<  "                                                                           "  << q << endl;
-cout << q <<  "                                                                           "  << q << endl;
-cout << q  << "                                                                           " << q << endl;
-cout << q  << "                                                                           "  << q << endl;
-cout << q  << "                                                                           " << q << endl;
-cout << q <<  "                                                                           "  << q << endl;
-cout << q <<  "                                                                           "  << q << endl;
-cout << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q <<  q << q << q ;
-cout << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q << q <<  q << q << q << q << q <<  q << q << q <<  q << q << q << endl;
-
-while (GetAsyncKeyState(VK_END) == 0) {
-           gotoxy(10,10);
-           cout << m;
-           //cout <<"I"
-}
-
-
-End:
-Sleep (1000);
-return true;
-}
-
 void MemoAlloc () {
 system ("cls");
 system ("color 1f");
@@ -1208,11 +1163,11 @@ if (Comando == "\n") {
 goto Cmd;
 }
 
-if ((Comando == "Itatexto.crasp") || (Comando == "ITATEXTO.CRASP")) { // 
+if ((Comando == "Itatexto") || (Comando == "ITATEXTO")) { // 
     PiscaTela ();
     Itatexto ();
 }
-if ((Comando == "Itatexto")|| (Comando == "ITATEXTO.CRASP")) system (".\\ITATEXTO.EXE");
+if ((Comando == "Itatexto.crasp")|| (Comando == "ITATEXTO.CRASP")) system (".\\ITATEXTO.EXE");
 
 if ((Comando == "ITADOSGRAPH.CRASP") || (Comando == "Itadosgraph.crasp")) { // 
 
@@ -1285,18 +1240,6 @@ if ((Comando == "config") || (Comando == "CONFIG")) { // Menu de configurações
 
 if ((Subcomando == "inputmode")||(Subcomando == "INPUTMODE")) inputmode = !inputmode;
  
-if (Subcomando == "scrbht-") {
-        Brilho--;
-        cout << Brilho << endl;
-}
- if (Subcomando == "scrbht+") {
-        Brilho++;
-        cout << Brilho << endl;
-}
-if (Subcomando == "scrld") {
-        cin >> LightDuration;
-        cout << LightDuration << endl;
-} // 
 if (Subcomando == "scrcolor?") {
         system ("color ?");
 } // 
@@ -1304,25 +1247,7 @@ if ((Subcomando == "scrcolor")||(Subcomando == "SCRCOLOR")) {
 cin >> Corsys;
         system (("color " + Corsys).c_str());
 } // 
-if (Subcomando == "vbon") {
-        ModoVibracao = 1;
-        cout << "Modo vibratorio ativado" << endl;
-} // 
-if (Subcomando == "vboff") {
-        ModoVibracao = 0;
-        cout << "Modo vibratorio desativado" << endl;
-}
-if (Subcomando == "btrecoon ") {
-        EconomiadeBateria = 1;
-        cout << "Modo economico ativado" << endl;
-}
-if (Subcomando == "btrecooff") {
-        EconomiadeBateria = 0;
-        cout << "Modo economico desativado" << endl;
-}
-if (Subcomando == "build>setup_v143") {
-cout << "Done" << endl;
-}
+
 if (Subcomando == "infosystem") {
 cout << "X64 bits System" << endl;
 }
@@ -1396,24 +1321,11 @@ if ((Comando == "pchar") || (Comando == "PCHAR")) {
     cout << (char) NovoValor;
 }
 
-if (Comando == "point") {
-    cout << endl;
-    cout << endl;
-    cout << endl;
-    cout << endl;
-    cout << endl;
-    cout << endl;
-    cout << endl;
-    cout << endl;
-    cout << endl;
-    cout << "Line found, on <35> up, <4> left" << endl;
-}
-
 if ((Comando == "jump" ) || (Comando == "JUMP" )) {
         cin >> X;
         cin >> Y;
     gotoxy (X,Y);
-  //  goto Comd;
+  
 }
 
 
@@ -1421,14 +1333,12 @@ if ((Comando == "scrwrite" )|| (Comando == "SCRWRITE" )) {
         string Scrwrite;
         cin >> Scrwrite;
         cout << Scrwrite;
-  //  goto Comd;
 }
 
 if ((Comando == "echo" ) || (Comando == "ECHO" )) {
         string Scrwrite;
         getline (cin, Scrwrite);
         cout << Scrwrite << endl;
-  //  goto Comd;
 }
 
 if ((Comando == "@echo" ) || (Comando == "@ECHO" )) {
@@ -1449,22 +1359,19 @@ if ((Comando == "newln" ) || (Comando == "NEWLN" ) || (Comando == "echo." ) || (
     cout << endl;
 }
 
-  //  goto Comd;
+  
 }
 if ((Comando == "Padron" )||(Comando == "padron" )||(Comando == "PADRON" )) {
         cin >> Padron;
         cout << "O texto padrao foi definido como " << Padron << endl;
         Padron1=1;
-  //  goto Comd;
 }
 if ((Comando == "Textreset" )||(Comando == "textreset" )||(Comando == "TEXTRESET" )) {
         Padron1 = 0;
         cout << "O texto padrao foi redefinido"<< endl;
-  //  goto Comd;
 }
 if ((Comando == "version" )||(Comando == "VERSION" )) {
         cout << "Current Version 1.8.3 0000134020180127"<< endl;
-  //  goto Comd;
 }
 if (Comando == "verify" ) {
         cin >> Arquivoaprocurar;
@@ -1509,20 +1416,17 @@ if ((Comando == "sudo")||(Comando == "SUDO")) {
         cout << " TOOLS - Disponibiliza todas as possibilidades do toolkit SUDO" << endl << endl;
 }
  if (Subcomando == "get_package") {
-        Brilho--;
-        cout << Brilho << endl;
+
 }
  if (Subcomando == "boost") {
-        Brilho++;
-        cout << Brilho << endl;
+
 }
 if (Subcomando == "config_bootloader") {
-        cin >> LightDuration;
-        cout << LightDuration << endl;
-} // 
+
+} 
 if (Subcomando == "change_password") {
         cin >> pin2;
-} // 
+}  
 if (Subcomando == "reboot") {
 //ShowConsoleCursor(false);
 ShowConsoleCursor(false);
@@ -1533,7 +1437,7 @@ ShowConsoleCursor(true);
 goto Inic;
 } // 
 if (Subcomando == "acess") {
-        ModoVibracao = 0;
+     
  cout << "done" << endl;
 }
 if (Subcomando == "eco_mode") {
@@ -1558,33 +1462,14 @@ if (Subcomando == "su") {
 
 }
 
-if (Comando == "Program" ) {
-        cin >> Program;
-        cout << "Funcao Programada para o CLI"<< endl;
-  //  goto Comd;
-}
-if (Comando == "RunProgram" ) {
-        cout << Program << endl;
-        cout << "Funcao retornada para o CLI"<< endl;
-  //  goto Comd;
-}
-
 if (Comando == "ConversordeDiabanos" ) {
         int Diabanos;
         cin >> Diabanos;
         cout << Program << endl;
         cout << Diabanos * (23548680 / 540000)<< endl;
-  //  goto Comd;
+  
 }
 
-if (Comando == "layout") { //NM
-     cout << endl;
-     system ("color"); // mod
-}
-if (Comando == "reload_ls") { // CARREGA A ULTIMA SESSAO LOGADA NO SUDO
-     cout << endl;
-     system ("color"); // mod
-}
 ///  /////////////////////////////////
 if ((Comando == "run") || (Comando == "RUN")) { //NM
      cin >> AplicacaoRodar;
@@ -4063,49 +3948,9 @@ void left_down(int x, int y, void*p)
      CDX = x;
      CDY = y;
           if (Aplicacao == "Itadraw") {
-                      if (Corselec == 1) {
-          Teladesenho [CDX] [CDY] = 1;
-          } else if (Corselec == 2) {
-          Teladesenho [CDX] [CDY] = 2;
 
-          } else if (Corselec == 3) {
-          Teladesenho [CDX] [CDY] = 3;
-
-          } else if (Corselec == 4) {
-          Teladesenho [CDX] [CDY] = 4;
-
-          } else if (Corselec == 5) {
-          Teladesenho [CDX] [CDY] = 5;
-
-          } else if (Corselec == 6) {
-          Teladesenho [CDX] [CDY] = 6;
-
-          } else if (Corselec == 7) {
-          Teladesenho [CDX] [CDY] = 7;
-
-          } else if (Corselec == 8) {
-          Teladesenho [CDX] [CDY] = 8;
-
-          } else if (Corselec == 9) {
-          Teladesenho [CDX] [CDY] = 9;
-
-          } else if (Corselec == 10) {
-          Teladesenho [CDX] [CDY] = 10;
-
-          } else if (Corselec == 11) {
-          Teladesenho [CDX] [CDY] = 11;
-
-          } else if (Corselec == 12) {
-          Teladesenho [CDX] [CDY] = 12;
-
-          } else if (Corselec == 13) {
-          Teladesenho [CDX] [CDY] = 13;
-
-          } else if (Corselec == 14) {
-          Teladesenho [CDX] [CDY] = 14;
-
-          } else if (Corselec == 15) {
-          Teladesenho [CDX] [CDY] = 15;
+          if (Corselec >= 1 && Corselec <= 15) {
+          Teladesenho [CDX] [CDY] = Corselec;
 
           } else if (Corselec == 800) {
           Teladesenho [CDX] [CDY] = 0;
@@ -4113,8 +3958,7 @@ void left_down(int x, int y, void*p)
           } else {
           Teladesenho [CDX] [CDY] = 1;
           }
-
-     }
+        }
 }
 
 void left_up(int x, int y, void*p)
